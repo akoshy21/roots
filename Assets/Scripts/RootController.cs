@@ -12,75 +12,70 @@ public class RootController : MonoBehaviour
     public GameObject rootPrefab;
     public GameObject rootParent;
 
-    private Coroutine drawing;
+    private Coroutine _drawing;
 
-    private Vector3 screenPoint, original;
-    private Vector3 offset;
+    private Vector3 _screenPoint, _original;
+    private Vector3 _offset;
 
-    private float timeCount = 0.0f;
-    private float clickTime;
+    private float _timeCount = 0.0f;
+    private float _clickTime;
 
-    private bool dragging;
-    private bool click = false;
+    private bool _dragging;
+    private bool _click = false;
 
-    private float zVal = 0;
 
     void Update()
     {
-        if (click && Time.time > (clickTime + clickDelta))
+        if (_click && Time.time > (_clickTime + clickDelta))
         {
-            click = false;
+            _click = false;
         }
     }
 
     private void OnMouseDown()
     {
         // Start drawing the root 
-        original = transform.position;
+        _original = transform.position;
         StartRoot();
-        offset = original -
-                 Camera.main.ScreenToWorldPoint(
-                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, zVal));
-        offset.z = zVal;
 
-        if (click && Time.time <= (clickTime + clickDelta))
+        if (_click && Time.time <= (_clickTime + clickDelta))
         {
             // If double click, split the root...
-            Vector3 newPosLeft = original + (Constants.LEFT_DOWN * splitDist);
-            Vector3 newPosRight = original + (Constants.RIGHT_DOWN * splitDist);
+            Vector3 newPosLeft = _original + (Constants.LEFT_DOWN * splitDist);
+            Vector3 newPosRight = _original + (Constants.RIGHT_DOWN * splitDist);
 
             GameObject left = Instantiate(gameObject);
 
             left.transform.position = newPosLeft;
             transform.position = newPosRight;
 
-            DrawRoot(original, newPosLeft);
-            DrawRoot(original, newPosRight);
+            DrawRoot(_original, newPosLeft);
+            DrawRoot(_original, newPosRight);
 
-            click = false;
-            original = newPosRight;
+            _click = false;
+            _original = newPosRight;
         }
         else
         {
-            click = true;
-            clickTime = Time.time;
+            _click = true;
+            _clickTime = Time.time;
         }
     }
 
     void OnMouseDrag()
     {
         // Object is being dragged.
-        timeCount += Time.deltaTime;
-        if (timeCount > 0.25f)
+        _timeCount += Time.deltaTime;
+        if (_timeCount > 0.25f)
         {
-            Debug.Log("Dragging:" + Input.mousePosition);
-            timeCount = 0.0f;
-            dragging = true;
+            //Debug.Log("Dragging:" + Input.mousePosition);
+            _timeCount = 0.0f;
+            _dragging = true;
         }
 
-        if (dragging)
+        if (_dragging)
         {
-            transform.position = original;
+            transform.position = _original;
         }
     }
 
@@ -91,17 +86,17 @@ public class RootController : MonoBehaviour
 
     void StartRoot()
     {
-        if (drawing != null)
+        if (_drawing != null)
         {
-            StopCoroutine(drawing);
+            StopCoroutine(_drawing);
         }
 
-        drawing = StartCoroutine(DrawRoot());
+        _drawing = StartCoroutine(DrawRoot());
     }
 
     void FinishRoot()
     {
-        StopCoroutine(drawing);
+        StopCoroutine(_drawing);
     }
 
     IEnumerator DrawRoot()
@@ -113,12 +108,12 @@ public class RootController : MonoBehaviour
         while (true)
         {
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 updated = Vector3.Normalize(position - original) * (speed * Time.deltaTime);
-            position.z = 0;
+            Vector3 updated = Vector3.Normalize(position - _original) * (speed * Time.deltaTime);
             updated.z = 0;
             line.positionCount++;
-            original += updated;
-            line.SetPosition(line.positionCount - 1, original);
+            _original += updated;
+            _original.z = 0;
+            line.SetPosition(line.positionCount - 1, _original);
             yield return null;
         }
     }
@@ -131,4 +126,5 @@ public class RootController : MonoBehaviour
         line.SetPosition(0, pos1);
         line.SetPosition(1, pos2);
     }
+
 }
