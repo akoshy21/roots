@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RootController : MonoBehaviour
 {
-    
     public float speed = 2f;
     public float clickDelta = 0.35f;
 
-    public float splitDist = 5f;
-    
+    public float splitDist = 1f;
+
     public GameObject rootPrefab;
     public GameObject rootParent;
 
@@ -23,11 +22,13 @@ public class RootController : MonoBehaviour
 
     private bool dragging;
     private bool click = false;
-    
+
+    private float zVal = 0;
 
     void Update()
     {
-        if (click && Time.time > (clickTime + clickDelta)) {
+        if (click && Time.time > (clickTime + clickDelta))
+        {
             click = false;
         }
     }
@@ -37,23 +38,27 @@ public class RootController : MonoBehaviour
         // Start drawing the root 
         original = transform.position;
         StartRoot();
-        offset = gameObject.transform.position -
+        offset = original -
                  Camera.main.ScreenToWorldPoint(
-                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, zVal));
+        offset.z = zVal;
 
         if (click && Time.time <= (clickTime + clickDelta))
         {
             // If double click, split the root...
-
-            Vector3 newPosLeft = transform.position + (Constants.LEFT_DOWN * splitDist);
-            Vector3 newPosRight = transform.position + (Constants.RIGHT_DOWN * splitDist);
+            Vector3 newPosLeft = original + (Constants.LEFT_DOWN * splitDist);
+            Vector3 newPosRight = original + (Constants.RIGHT_DOWN * splitDist);
 
             GameObject left = Instantiate(gameObject);
-            left.transform.position = newPosLeft;
 
+            left.transform.position = newPosLeft;
             transform.position = newPosRight;
 
+            DrawRoot(original, newPosLeft);
+            DrawRoot(original, newPosRight);
+
             click = false;
+            original = newPosRight;
         }
         else
         {
@@ -110,10 +115,20 @@ public class RootController : MonoBehaviour
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 updated = Vector3.Normalize(position - original) * (speed * Time.deltaTime);
             position.z = 0;
+            updated.z = 0;
             line.positionCount++;
             original += updated;
             line.SetPosition(line.positionCount - 1, original);
             yield return null;
         }
+    }
+
+    void DrawRoot(Vector3 pos1, Vector3 pos2)
+    {
+        GameObject go = Instantiate(rootPrefab, rootParent.transform);
+        LineRenderer line = go.GetComponent<LineRenderer>();
+        line.positionCount = 2;
+        line.SetPosition(0, pos1);
+        line.SetPosition(1, pos2);
     }
 }
