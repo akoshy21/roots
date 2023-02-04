@@ -4,37 +4,34 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    private float lowestY = 0;
+    private float _lowestY = 0;
     public float camSpeed = 1;
 
-    private Vector3 endPos;
-    private Vector3 origPos;
+    private Vector3 _endPos;
+    private Vector3 _origPos;
 
-    private float step = 0;
+    private float _step = 0;
 
     public void CheckY(Vector3 pos)
     {
-        Debug.Log("check y " + lowestY  + pos.y);
+        Debug.Log("check y " + _lowestY  + pos.y);
         
-        if (pos.y < lowestY)
+        if (pos.y < _lowestY)
         {
-            lowestY = pos.y;
-            origPos = transform.position;
-            endPos = new Vector3(origPos.x, lowestY, -10);
-            
-            Debug.Log("lowestY " + lowestY + pos.y);
-
-            step = 0;
+            _lowestY = pos.y;
+            _origPos = transform.position;
+            _endPos = new Vector3(_origPos.x, _lowestY, -10);
+            _step = 0;
         }
     }
 
     public void Update()
     {
-        step += Time.deltaTime * camSpeed;
-        if (step > 1) step = 1;
-        if (Vector3.Distance(origPos, endPos) > 0.25f)
+        _step += Time.deltaTime * camSpeed;
+        if (_step > 1) _step = 1;
+        if (Vector3.Distance(_origPos, _endPos) > 0.25f)
         {
-            transform.position = Vector3.Lerp(origPos, endPos, step);
+            transform.position = Vector3.Lerp(_origPos, _endPos, _step);
         }
     }
 }

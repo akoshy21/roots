@@ -12,7 +12,8 @@ public class RootController : MonoBehaviour
     public float splitDist = 1f;
 
     public Rigidbody2D rb;
-    
+
+    public GameObject rootControllerParent;
     public GameObject rootPrefab;
     public GameObject rootParent;
 
@@ -33,12 +34,20 @@ public class RootController : MonoBehaviour
     public float maxTime = 3;
     private float _timeOnRoot = 0;
 
+    public List<LineRenderer> roots = new List<LineRenderer>();
 
     private Vector2 _direction;
 
+    public bool active;
+    
     private void Awake()
     {
         _cam = Camera.main.GetComponent<CameraController>();
+    }
+
+    private void Start()
+    {
+        PlantManager.Instance.AddRootController(this);
     }
 
     void Update()
@@ -47,6 +56,7 @@ public class RootController : MonoBehaviour
         {
             _click = false;
         }
+        
     }
 
     private void FixedUpdate()
@@ -70,7 +80,7 @@ public class RootController : MonoBehaviour
             Vector3 newPosLeft = _original + (Constants.LEFT_DOWN * splitDist);
             Vector3 newPosRight = _original + (Constants.RIGHT_DOWN * splitDist);
 
-            GameObject left = Instantiate(gameObject);
+            GameObject left = Instantiate(gameObject, rootControllerParent.transform);
 
             left.transform.position = newPosLeft;
             transform.position = newPosRight;
@@ -102,6 +112,10 @@ public class RootController : MonoBehaviour
 
         if (_dragging)
         {
+            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = Vector3.Normalize(position - _original);
+            dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
+            _direction = dir;
           //  transform.position = _original;
         }
     }
@@ -137,19 +151,14 @@ public class RootController : MonoBehaviour
         EdgeCollider2D edge = go.GetComponent<EdgeCollider2D>();
 
         line.positionCount = 0;
+        roots.Add(line);
+
         while (true)
         {
-            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 dir = Vector3.Normalize(position - _original);
-            dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
-            _direction = dir;
-            
-            Vector3 updated = dir * (speed * Time.deltaTime);
-            updated.z = 0;
             line.positionCount++;
             line.widthMultiplier += maxThickness * _timeOnRoot/maxTime;
             
-            _original += updated;
+            _original = transform.position;
             _original.z = 0;
             line.SetPosition(line.positionCount - 1, _original);
             Vector3[] positions = new Vector3[line.positionCount];
@@ -168,6 +177,8 @@ public class RootController : MonoBehaviour
         line.positionCount = 2;
         line.SetPosition(0, pos1);
         line.SetPosition(1, pos2);
+
+        roots.Add(line);
     }
 
     Vector2[] ToV2(Vector3[] v3)
@@ -180,6 +191,10 @@ public class RootController : MonoBehaviour
 
         return v2;
     }
-    
-    
+
+    public void DestroyRoot()
+    {
+        active = false;
+        rb.simulated = false;
+    }
 }

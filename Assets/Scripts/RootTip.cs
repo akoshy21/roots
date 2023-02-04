@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class RootTip : MonoBehaviour
 {
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        // TODO: ADD ROCK COLLISION
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         Pocket pocket = other.GetComponent<Pocket>();
@@ -15,6 +10,14 @@ public class RootTip : MonoBehaviour
         if (pocket)
         {
             pocket.DrainPocket();
+        }
+        
+        Rock rock = other.gameObject.GetComponent<Rock>();
+
+        if (rock)
+        {
+            this.GetComponentInParent<RootController>().DestroyRoot();
+            rock.HitRock();
         }
     }
     

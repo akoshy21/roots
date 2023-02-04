@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlantManager : MonoBehaviour
 {
@@ -13,11 +15,13 @@ public class PlantManager : MonoBehaviour
 
     public CustomFillBar nutrientsBar, waterBar;
 
-    private List<DecayListener> _listeners = new List<DecayListener>();
+    private readonly List<DecayListener> _listeners = new List<DecayListener>();
 
     public static PlantManager Instance;
 
-    private Coroutine decay;
+    private readonly List<RootController> _activeRoots = new List<RootController>();
+
+    private Coroutine _decay;
     
     public void Awake()
     {
@@ -29,13 +33,13 @@ public class PlantManager : MonoBehaviour
 
     private void Start()
     {
-        decay = StartCoroutine(DecayValues());
+        _decay = StartCoroutine(DecayValues());
     }
 
     private void OnDestroy()
     {
-        if(decay != null)
-            StopCoroutine(decay);
+        if(_decay != null)
+            StopCoroutine(_decay);
     }
 
     IEnumerator DecayValues()
@@ -54,6 +58,11 @@ public class PlantManager : MonoBehaviour
             
             yield return new WaitForSeconds(1);
         }
+    }
+
+    private bool HasActiveRoots()
+    {
+       return _activeRoots.FirstOrDefault(root => root.active);
     }
 
     public void AddListener(DecayListener listener)
@@ -78,6 +87,24 @@ public class PlantManager : MonoBehaviour
             nutrientCurrent += nutrientAdded;
             nutrientsBar.SetFill(nutrientCurrent / nutrientMax);
         }
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("Scenes/LoseScreen");
+    }
+
+    public void DeadRoot()
+    {
+        if (!HasActiveRoots())
+        {
+            LoseGame();
+        }
+    }
+
+    public void AddRootController(RootController rc)
+    {
+        _activeRoots.Add(rc);
     }
 }
 
