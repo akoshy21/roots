@@ -131,9 +131,6 @@ public class RootController : MonoBehaviour
             line.positionCount++;
             line.widthMultiplier += maxThickness * _timeOnRoot/maxTime;
             
-            if(_timeOnRoot > maxTime)
-                Debug.Log("test if");
-            
             _original += updated;
             _original.z = 0;
             line.SetPosition(line.positionCount - 1, _original);
