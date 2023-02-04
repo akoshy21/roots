@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,13 @@ public class RootController : MonoBehaviour
     private bool _dragging;
     private bool _click = false;
 
+    private CameraController cam;
+
+
+    private void Awake()
+    {
+        cam = Camera.main.GetComponent<CameraController>();
+    }
 
     void Update()
     {
@@ -82,6 +90,7 @@ public class RootController : MonoBehaviour
     private void OnMouseUp()
     {
         FinishRoot();
+        cam.CheckY(_original);
     }
 
     void StartRoot()
