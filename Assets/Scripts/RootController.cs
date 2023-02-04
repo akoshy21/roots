@@ -12,7 +12,8 @@ public class RootController : MonoBehaviour
     public float splitDist = 1f;
 
     public Rigidbody2D rb;
-
+    public SpriteRenderer sr;
+    
     public GameObject rootControllerParent;
     public GameObject rootPrefab;
     public GameObject rootParent;
@@ -129,6 +130,17 @@ public class RootController : MonoBehaviour
         _cam.CheckY(_original);
     }
 
+    void OnMouseOver()
+    {
+        sr.color = new Color(152,255 , 150, 0.15f);
+    }
+
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        sr.color = new Color(152,255 , 150, 0);
+    }
+    
     void StartRoot()
     {
         if (_drawing != null)
