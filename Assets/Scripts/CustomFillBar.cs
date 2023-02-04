@@ -39,7 +39,6 @@ public class CustomFillBar : MonoBehaviour
         if (Mathf.Abs(yTargetHeight - yHeightCurrent) > 0.01f)
         {
             yHeightCurrent = Mathf.Lerp(yLastHeight, yTargetHeight, step);
-            Debug.Log("Y HEIGHT " + yHeightCurrent);
             rect.anchoredPosition = new Vector3(transform.localPosition.x, yHeightCurrent, transform.localPosition.z);
         }
     }

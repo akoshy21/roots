@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PocketType
 {
@@ -16,6 +17,9 @@ public class Pocket : MonoBehaviour
 
     public PocketType type = PocketType.Water;
 
+    [Header("Nutrient")] public Sprite grayedOut;
+    
+    [Header("Water")]
     public GameObject waterFill;
     
     private PlantManager pm;
@@ -46,6 +50,9 @@ public class Pocket : MonoBehaviour
                     pm.AddNutrient(drainRate);
                     break;
             }
+        } else if (type == PocketType.Nutrient)
+        {
+            this.GetComponentInChildren<SpriteRenderer>().sprite = grayedOut;
         }
     }
 
