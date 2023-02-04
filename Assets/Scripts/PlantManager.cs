@@ -64,8 +64,18 @@ public class PlantManager : MonoBehaviour
     {
         if (waterAdded + waterCurrent <= waterMax)
         {
+            Debug.Log("Adding Water...");
             waterCurrent += waterAdded;
             waterBar.fillAmount = waterCurrent / waterMax;
+        }
+    }
+
+    public void AddNutrient(float nutrientAdded)
+    {
+        if (nutrientAdded + nutrientCurrent <= nutrientMax)
+        {
+            nutrientCurrent += nutrientAdded;
+            nutrientsBar.fillAmount = nutrientCurrent / nutrientMax;
         }
     }
 }

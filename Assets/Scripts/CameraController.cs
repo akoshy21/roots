@@ -32,7 +32,6 @@ public class CameraController : MonoBehaviour
     {
         step += Time.deltaTime * camSpeed;
         if (step > 1) step = 1;
-        Debug.Log(origPos + " " + endPos);
         if (Vector3.Distance(origPos, endPos) > 0.25f)
         {
             transform.position = Vector3.Lerp(origPos, endPos, step);

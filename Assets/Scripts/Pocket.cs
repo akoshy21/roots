@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public enum PocketType
@@ -11,30 +12,54 @@ public class Pocket : MonoBehaviour
 {
     public float drainRate;
     public float totalValue;
+    private float currentValue;
 
     public PocketType type = PocketType.Water;
 
-    public PlantManager pm;
+    public GameObject waterFill;
+    
+    private PlantManager pm;
+
+    private Coroutine waterDrain;
+
+    private Vector3 empty = new Vector3(0,-2f, 0);
+    private float step = 0.1f;
+    private float currStep = 1;
 
     private void Start()
     {
         pm = PlantManager.Instance;
+        currentValue = totalValue;
     }
 
     public void DrainPocket()
     {
-        if (totalValue > 0)
+        if (currentValue > 0)
         {
-            totalValue -= drainRate * Time.deltaTime;
+            currentValue -= drainRate * Time.deltaTime;
             switch (type)
             {
                 case PocketType.Water:
-                    pm.AddWater(drainRate);
+                    if (waterDrain == null) waterDrain = StartCoroutine(DrainWaterOverTime());
                     break;
                 case PocketType.Nutrient:
-                    pm.AddWater(drainRate);
+                    pm.AddNutrient(drainRate);
                     break;
             }
         }
+    }
+
+    IEnumerator DrainWaterOverTime()
+    {
+        Debug.Log("Draining Water...");
+        while (currentValue > 0)
+        {
+            currentValue -= drainRate;
+            pm.AddWater(drainRate);
+            waterFill.transform.localPosition = Vector3.Lerp(empty,Vector3.zero, currentValue/totalValue);
+            yield return new WaitForSeconds(1);
+        }
+
+        if (currentValue <= 0) waterDrain = null;
     }
 }
