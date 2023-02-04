@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1596872127030731078}
   - component: {fileID: 3535109821617620116}
   m_Layer: 0
-  m_Name: WaterSprite_3
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
