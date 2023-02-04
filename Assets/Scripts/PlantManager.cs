@@ -11,7 +11,7 @@ public class PlantManager : MonoBehaviour
 
     public float decayRateWater, decayRateNutrients;
 
-    public Image nutrientsBar, waterBar;
+    public CustomFillBar nutrientsBar, waterBar;
 
     private List<DecayListener> _listeners = new List<DecayListener>();
 
@@ -44,8 +44,8 @@ public class PlantManager : MonoBehaviour
         {
             waterCurrent -= decayRateWater;
             nutrientCurrent -= decayRateNutrients;
-            nutrientsBar.fillAmount = nutrientCurrent / nutrientMax;
-            waterBar.fillAmount = waterCurrent / waterMax;
+            nutrientsBar.SetFill(nutrientCurrent / nutrientMax);
+            waterBar.SetFill(waterCurrent / waterMax);
             
             _listeners.ForEach(listener =>
             {
@@ -67,7 +67,7 @@ public class PlantManager : MonoBehaviour
         {
             Debug.Log("Adding Water...");
             waterCurrent += waterAdded;
-            waterBar.fillAmount = waterCurrent / waterMax;
+            waterBar.SetFill(waterCurrent / waterMax);
         }
     }
 
@@ -76,7 +76,7 @@ public class PlantManager : MonoBehaviour
         if (nutrientAdded + nutrientCurrent <= nutrientMax)
         {
             nutrientCurrent += nutrientAdded;
-            nutrientsBar.fillAmount = nutrientCurrent / nutrientMax;
+            nutrientsBar.SetFill(nutrientCurrent / nutrientMax);
         }
     }
 }
