@@ -38,7 +38,7 @@ public class RootController : MonoBehaviour
 
     private Vector2 _direction;
 
-    public bool active;
+    public bool active = true;
     
     private void Awake()
     {

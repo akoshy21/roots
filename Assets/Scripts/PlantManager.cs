@@ -62,7 +62,7 @@ public class PlantManager : MonoBehaviour
 
     private bool HasActiveRoots()
     {
-       return _activeRoots.FirstOrDefault(root => root.active);
+       return _activeRoots.Exists(root => root.active);
     }
 
     public void AddListener(DecayListener listener)
