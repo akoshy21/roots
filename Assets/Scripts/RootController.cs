@@ -6,10 +6,13 @@ using UnityEngine;
 public class RootController : MonoBehaviour
 {
     public float speed = 2f;
+    public float maxSpeed = 5f;
     public float clickDelta = 0.35f;
 
     public float splitDist = 1f;
 
+    public Rigidbody2D rb;
+    
     public GameObject rootPrefab;
     public GameObject rootParent;
 
@@ -24,16 +27,18 @@ public class RootController : MonoBehaviour
     private bool _dragging;
     private bool _click = false;
 
-    private CameraController cam;
+    private CameraController _cam;
 
     public float maxThickness = 2f;
     public float maxTime = 3;
     private float _timeOnRoot = 0;
 
 
+    private Vector2 _direction;
+
     private void Awake()
     {
-        cam = Camera.main.GetComponent<CameraController>();
+        _cam = Camera.main.GetComponent<CameraController>();
     }
 
     void Update()
@@ -41,6 +46,14 @@ public class RootController : MonoBehaviour
         if (_click && Time.time > (_clickTime + clickDelta))
         {
             _click = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (rb.velocity.magnitude < maxSpeed)
+        {
+                rb.AddForce(_direction * speed);
         }
     }
 
@@ -89,14 +102,17 @@ public class RootController : MonoBehaviour
 
         if (_dragging)
         {
-            transform.position = _original;
+          //  transform.position = _original;
         }
     }
 
     private void OnMouseUp()
     {
         FinishRoot();
-        cam.CheckY(_original);
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        _direction = Vector2.zero;
+        _cam.CheckY(_original);
     }
 
     void StartRoot()
@@ -126,6 +142,8 @@ public class RootController : MonoBehaviour
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 dir = Vector3.Normalize(position - _original);
             dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
+            _direction = dir;
+            
             Vector3 updated = dir * (speed * Time.deltaTime);
             updated.z = 0;
             line.positionCount++;
@@ -162,4 +180,6 @@ public class RootController : MonoBehaviour
 
         return v2;
     }
+    
+    
 }
