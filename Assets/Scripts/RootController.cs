@@ -26,6 +26,10 @@ public class RootController : MonoBehaviour
 
     private CameraController cam;
 
+    public float maxThickness = 2f;
+    public float maxTime = 3;
+    private float _timeOnRoot = 0;
+
 
     private void Awake()
     {
@@ -42,7 +46,8 @@ public class RootController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Start drawing the root 
+        _timeOnRoot = 0;
+            // Start drawing the root 
         _original = transform.position;
         StartRoot();
 
@@ -79,6 +84,7 @@ public class RootController : MonoBehaviour
             //Debug.Log("Dragging:" + Input.mousePosition);
             _timeCount = 0.0f;
             _dragging = true;
+            _timeOnRoot += Time.deltaTime;
         }
 
         if (_dragging)
@@ -112,17 +118,30 @@ public class RootController : MonoBehaviour
     {
         GameObject go = Instantiate(rootPrefab, rootParent.transform);
         LineRenderer line = go.GetComponent<LineRenderer>();
+        EdgeCollider2D edge = go.GetComponent<EdgeCollider2D>();
 
         line.positionCount = 0;
         while (true)
         {
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 updated = Vector3.Normalize(position - _original) * (speed * Time.deltaTime);
+            Vector3 dir = Vector3.Normalize(position - _original);
+            dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
+            Vector3 updated = dir * (speed * Time.deltaTime);
             updated.z = 0;
             line.positionCount++;
+            line.widthMultiplier += maxThickness * _timeOnRoot/maxTime;
+            
+            if(_timeOnRoot > maxTime)
+                Debug.Log("test if");
+            
             _original += updated;
             _original.z = 0;
             line.SetPosition(line.positionCount - 1, _original);
+            Vector3[] positions = new Vector3[line.positionCount];
+            line.GetPositions(positions);
+
+            edge.points = ToV2(positions);
+            
             yield return null;
         }
     }
@@ -136,4 +155,14 @@ public class RootController : MonoBehaviour
         line.SetPosition(1, pos2);
     }
 
+    Vector2[] ToV2(Vector3[] v3)
+    {
+        Vector2[] v2 = new Vector2[v3.Length];
+        for (int i = 0; i < v2.Length; i++)
+        {
+            v2[i] = v3[i];
+        }
+
+        return v2;
+    }
 }

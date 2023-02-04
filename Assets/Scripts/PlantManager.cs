@@ -34,7 +34,8 @@ public class PlantManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(decay);
+        if(decay != null)
+            StopCoroutine(decay);
     }
 
     IEnumerator DecayValues()
