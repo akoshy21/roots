@@ -62,14 +62,13 @@ public class RootController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.velocity.magnitude < maxSpeed)
-        {
-                rb.AddForce(_direction * speed);
-        }
+        if (_direction.magnitude > 0)
+            rb.velocity = _direction * speed;
     }
 
     private void OnMouseDown()
     {
+        rb.isKinematic = false;
         _timeOnRoot = 0;
             // Start drawing the root 
         _original = transform.position;
@@ -128,6 +127,8 @@ public class RootController : MonoBehaviour
         rb.angularVelocity = 0;
         _direction = Vector2.zero;
         _cam.CheckY(_original);
+
+        rb.isKinematic = true;
     }
 
     void OnMouseOver()
