@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6246881e7c574c1f87eaa3719455d7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drainRate: 2
+  drainRate: 5
   totalValue: 20
   type: 0
   grayedOut: {fileID: 0}
