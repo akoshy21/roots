@@ -31,7 +31,7 @@ public class ItemSpawner : MonoBehaviour
 
     private Camera cam;
 
-    private float lastDepth = 0;
+    private float lastDepth = -35;
 
     private void Awake()
     {
