@@ -9,8 +9,8 @@ public class StartingCutscene : MonoBehaviour
     public LineRenderer line;
     public float lineEnd;
     public float step;
-
-    public GameObject root;
+    
+    public GameObject[] gameObjToInitialize;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -29,6 +29,11 @@ public class StartingCutscene : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         
-        root.SetConditionalActive(true);
+        foreach (GameObject o in gameObjToInitialize)
+        {
+            o.SetConditionalActive(true);
+        }
+        
+        Camera.main.GetComponent<CameraController>().CheckY(Vector3.zero);
     }
 }

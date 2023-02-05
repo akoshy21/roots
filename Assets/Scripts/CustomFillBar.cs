@@ -26,7 +26,7 @@ public class CustomFillBar : MonoBehaviour
         rect = GetComponent<RectTransform>();
         yHeightCurrent = Mathf.Lerp(yHeightMin, yHeightMax, fillValue);
         yLastHeight = yHeightCurrent;
-        transform.position = new Vector3(transform.position.x, yHeightCurrent, transform.position.z);
+        rect.anchoredPosition = new Vector3(transform.localPosition.x, yHeightCurrent, transform.localPosition.z);
     }
 
     // Update is called once per frame

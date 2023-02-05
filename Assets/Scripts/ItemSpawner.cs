@@ -31,6 +31,8 @@ public class ItemSpawner : MonoBehaviour
 
     private Camera cam;
 
+    private float lastDepth = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -71,75 +73,87 @@ public class ItemSpawner : MonoBehaviour
         max.y *= Screen.height;
 
         max += spawnWidth.offsetMax;
-        
+
         // TODO: make this the left and right bound of rect transform 
         Vector3 rightBound = cam.ScreenToWorldPoint(new Vector3(min.x, 0, 0));
+        Constants.RIGHT_BOUND = rightBound;
         Vector3 leftBound = cam.ScreenToWorldPoint(new Vector3(max.x, 0, 0));
+        Constants.LEFT_BOUND = leftBound;
         // Debug.Log("BOUNDS " + rightBound.x + ", " + leftBound.x);
 
         Vector3 newDepth = cam.ScreenToWorldPoint(new Vector3(0, (camY - height) - 2, 0));
 
-        float pointOnCurve = PointOnCurve(newDepth.y);
-
-        int rockCount = (int) Mathf.Lerp(minRockCount, maxRockCount, pointOnCurve);
-        rockCount = (int) Random.Range(rockCount - rockTolerance, rockCount + rockTolerance);
-
-        if (rockCount < 0) rockCount = 0;
-
-        for (int i = 0; i < rockCount; i++)
+        if (lastDepth - newDepth.y > 4)
         {
-            GameObject tempRock = Instantiate(rock, objectContainer.transform);
-            tempRock.transform.position =
-                GetAvailablePosition(tempRock.GetComponent<CircleCollider2D>(),
-                    leftBound.x, rightBound.x, newDepth.y);
+            lastDepth = newDepth.y;
+            float pointOnCurve = PointOnCurve(newDepth.y);
+
+            int rockCount = (int) Mathf.Lerp(minRockCount, maxRockCount, pointOnCurve);
+            rockCount = (int) Random.Range(rockCount - rockTolerance, rockCount + rockTolerance);
+
+            if (rockCount < 0) rockCount = 0;
+
+            for (int i = 0; i < rockCount; i++)
+            {
+                GameObject tempRock = Instantiate(rock, objectContainer.transform);
+                tempRock.transform.position =
+                    GetAvailablePosition(tempRock.GetComponent<CircleCollider2D>(),
+                        leftBound.x, rightBound.x, newDepth.y);
+            }
+
+            int nutriCount = (int) Mathf.Lerp(maxNutriCount, minNutriCount, pointOnCurve);
+            nutriCount = (int) Random.Range(nutriCount - nutriTolerance, nutriCount + nutriTolerance);
+            if (nutriCount < 0) nutriCount = 0;
+
+            float nutriTotal = Mathf.Lerp(minNutriTotal, maxNutriTotal, pointOnCurve);
+            nutriTotal = Random.Range(nutriTotal - (nutriTolerance * 5), nutriTotal + (nutriTolerance * 5));
+
+
+            for (int i = 0; i < nutriCount; i++)
+            {
+                GameObject tempNutri = Instantiate(fishPocket, objectContainer.transform);
+                tempNutri.transform.position =
+                    GetAvailablePosition(tempNutri.GetComponent<CircleCollider2D>(),
+                        leftBound.x, rightBound.x, newDepth.y);
+                tempNutri.GetComponent<Pocket>().SetTotal(nutriTotal);
+            }
+
+            int waterCount = (int) Mathf.Lerp(maxWaterCount, minWaterCount, pointOnCurve);
+            waterCount = (int) Random.Range(waterCount - waterTolerance, waterCount + waterTolerance);
+            if (waterCount < 0) waterCount = 0;
+
+            float waterTotal = Mathf.Lerp(minWaterTotal, maxWaterTotal, pointOnCurve);
+            waterTotal = Random.Range(waterTotal - (waterTolerance * 5), waterTotal + (waterTolerance * 5));
+
+
+            for (int i = 0; i < waterCount; i++)
+            {
+                GameObject tempWater = Instantiate(waterPocket, objectContainer.transform);
+                tempWater.transform.position =
+                    GetAvailablePosition(tempWater.GetComponent<CircleCollider2D>(),
+                        leftBound.x, rightBound.x, newDepth.y);
+                tempWater.GetComponent<Pocket>().SetTotal(waterTotal);
+            }
+
+
+            Physics2D.autoSyncTransforms = false;
         }
-
-        int nutriCount = (int) Mathf.Lerp(maxNutriCount, minNutriCount, pointOnCurve);
-        nutriCount = (int) Random.Range(nutriCount - nutriTolerance, nutriCount + nutriTolerance);
-        if (nutriCount < 0) nutriCount = 0;
-
-        float nutriTotal = Mathf.Lerp(minNutriTotal, maxNutriTotal, pointOnCurve);
-        nutriTotal = Random.Range(nutriTotal - (nutriTolerance * 5), nutriTotal + (nutriTolerance * 5));
-
-
-        for (int i = 0; i < nutriCount; i++)
-        {
-            GameObject tempNutri = Instantiate(fishPocket, objectContainer.transform);
-            tempNutri.transform.position =
-                GetAvailablePosition(tempNutri.GetComponent<CircleCollider2D>(),
-                    leftBound.x, rightBound.x, newDepth.y);
-            tempNutri.GetComponent<Pocket>().SetTotal(nutriTotal);
-        }
-
-        int waterCount = (int) Mathf.Lerp(maxWaterCount, minWaterCount, pointOnCurve);
-        waterCount = (int) Random.Range(waterCount - waterTolerance, waterCount + waterTolerance);
-        if (waterCount < 0) waterCount = 0;
-
-        float waterTotal = Mathf.Lerp(minWaterTotal, maxWaterTotal, pointOnCurve);
-        waterTotal = Random.Range(waterTotal - (waterTolerance * 5), waterTotal + (waterTolerance * 5));
-
-
-        for (int i = 0; i < waterCount; i++)
-        {
-            GameObject tempWater = Instantiate(waterPocket, objectContainer.transform);
-            tempWater.transform.position =
-                GetAvailablePosition(tempWater.GetComponent<CircleCollider2D>(),
-                    leftBound.x, rightBound.x, newDepth.y);
-            tempWater.GetComponent<Pocket>().SetTotal(waterTotal);
-        }
-
-
-        Physics2D.autoSyncTransforms = false;
     }
+
+    private int _iterations = 0;
 
     Vector3 GetAvailablePosition(CircleCollider2D coll, float leftBound, float rightBound, float newDepth)
     {
         Vector3 rand = new Vector3(
             Random.Range(leftBound, rightBound), Random.Range(newDepth - 2f, newDepth + 2f), 0.1f);
-        Collider2D hit = Physics2D.OverlapCircle(rand, coll.radius + 0.25f);
+        Collider2D hit = Physics2D.OverlapCircle(rand, coll.radius + 0.5f);
         if (hit)
         {
-            return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
+            _iterations += 1;
+            if (_iterations < 5)
+                return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
+            else
+                return rand += Vector3.one;
         }
 
         return rand;
