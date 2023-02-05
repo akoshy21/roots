@@ -50,4 +50,9 @@ public class CameraController : MonoBehaviour
         _endPos = new Vector3(_origPos.x, topY, -10);
         _step = 0;
     }
+
+    public void IntroCutscene()
+    {
+        
+    }
 }
