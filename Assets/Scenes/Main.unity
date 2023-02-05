@@ -2293,7 +2293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1049145796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,6 +2365,7 @@ MonoBehaviour:
   rockTolerance: 1
   minRockCount: 0
   maxRockCount: 15
+  background: {fileID: 7728846129931457479, guid: 012ba7cc8828f594fb9a2c4f7e65f1f5, type: 3}
 --- !u!1001 &1087651352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3120,7 +3121,7 @@ GameObject:
   - component: {fileID: 1496201306}
   - component: {fileID: 1496201310}
   - component: {fileID: 1496201309}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Acorn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3235,7 +3236,6 @@ MonoBehaviour:
   lineEnd: 0
   step: -0.1
   gameObjToInitialize:
-  - {fileID: 1049145795}
   - {fileID: 154933205}
   - {fileID: 1730841274}
   - {fileID: 522548983}
@@ -3374,11 +3374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5415545286280945481, guid: e18e4039474371040822b936ae89f58b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5415545286280945481, guid: e18e4039474371040822b936ae89f58b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.64
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e18e4039474371040822b936ae89f58b, type: 3}
