@@ -40,13 +40,13 @@ public class Pocket : MonoBehaviour
     {
         if (currentValue > 0)
         {
-            currentValue -= drainRate * Time.deltaTime;
             switch (type)
             {
                 case PocketType.Water:
                     if (waterDrain == null) waterDrain = StartCoroutine(DrainWaterOverTime());
                     break;
                 case PocketType.Nutrient:
+                    currentValue -= drainRate;
                     pm.AddNutrient(drainRate);
                     break;
             }
@@ -55,7 +55,7 @@ public class Pocket : MonoBehaviour
             this.GetComponentInChildren<SpriteRenderer>().sprite = grayedOut;
         }
     }
-
+    
     IEnumerator DrainWaterOverTime()
     {
         Debug.Log("Draining Water...");
