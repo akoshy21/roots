@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
     private float _lowestY = 0;
     public float camSpeed = 1;
 
+    public float topY = 3.18f;
+    
     private Vector3 _endPos;
     private Vector3 _origPos;
 
@@ -40,5 +42,12 @@ public class CameraController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(_origPos, _endPos, _step);
         } 
+    }
+
+    public void ScrollToTop()
+    {
+        _origPos = transform.position;
+        _endPos = new Vector3(_origPos.x, topY, -10);
+        _step = 0;
     }
 }

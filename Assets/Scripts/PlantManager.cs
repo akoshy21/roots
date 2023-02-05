@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class PlantManager : MonoBehaviour
 {
+    public CameraController cam;
+    
     public float waterCurrent, waterMax;
     public float nutrientCurrent, nutrientMax;
 
@@ -56,6 +58,9 @@ public class PlantManager : MonoBehaviour
                     listener.OnDecay();
             });
             
+            if(nutrientCurrent <= 0 || waterCurrent <= 0)
+                LoseGame();
+            
             yield return new WaitForSeconds(1);
         }
     }
@@ -91,7 +96,7 @@ public class PlantManager : MonoBehaviour
 
     public void LoseGame()
     {
-        SceneManager.LoadScene("Scenes/LoseScreen");
+        cam.ScrollToTop();
     }
 
     public void DeadRoot()

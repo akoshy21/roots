@@ -31,6 +31,7 @@ MonoBehaviour:
   drainRate: 2
   totalValue: 20
   type: 0
+  grayedOut: {fileID: 0}
   waterFill: {fileID: 4384873998603656478}
 --- !u!1001 &5253443258697873135
 PrefabInstance:
@@ -49,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5435974201195058015, guid: f8482e8aa29e3e2408e3967097a1f032, type: 3}
       propertyPath: m_Name
-      value: WaterPocket
+      value: WaterPocket Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5435974201195058015, guid: f8482e8aa29e3e2408e3967097a1f032, type: 3}
       propertyPath: m_IsActive
@@ -69,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8314250859577701791, guid: f8482e8aa29e3e2408e3967097a1f032, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.78
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8314250859577701791, guid: f8482e8aa29e3e2408e3967097a1f032, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.66
+      value: -1.370001
       objectReference: {fileID: 0}
     - target: {fileID: 8314250859577701791, guid: f8482e8aa29e3e2408e3967097a1f032, type: 3}
       propertyPath: m_LocalPosition.z
