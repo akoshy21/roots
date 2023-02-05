@@ -92,9 +92,6 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
-            
-            if(aSource.isPlaying && active)
-                aSource.Play();
         }
         else
         {
@@ -113,6 +110,9 @@ public class RootController : MonoBehaviour
             _timeCount = 0.0f;
             _dragging = true;
             _timeOnRoot += Time.deltaTime;
+                        
+            if(!aSource.isPlaying && active)
+                aSource.Play();
         }
 
         if (_dragging)
