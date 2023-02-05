@@ -7,6 +7,8 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject objectContainer;
 
+    public RectTransform spawnWidth;
+
     [Header("Prefabs")] public GameObject waterPocket;
     public GameObject fishPocket, bonePocket, applePocket, rock;
 
@@ -53,19 +55,29 @@ public class ItemSpawner : MonoBehaviour
         Physics2D.autoSyncTransforms = true;
         // Get the camera height
         float height = Screen.height;
-        float width = Screen.width;
+        float width = spawnWidth.sizeDelta.x;
 
         // Now we get the position of the camera
         float camY = cam.transform.position.y;
-        float camX = cam.transform.position.x;
 
-        // TODO: make this the left and right bound of rect transform 
-        Vector3 rightBound = cam.ScreenToWorldPoint(new Vector3((camX + width / 2f), 0, 0));
-        Vector3 leftBound = cam.ScreenToWorldPoint(new Vector3((camX - width / 2f), 0, 0));
+        Vector2 min = spawnWidth.anchorMin;
+        min.x *= Screen.width;
+        min.y *= Screen.height;
+
+        min += spawnWidth.offsetMin;
+
+        Vector2 max = spawnWidth.anchorMax;
+        max.x *= Screen.width;
+        max.y *= Screen.height;
+
+        max += spawnWidth.offsetMax;
         
-        Debug.Log("BOUNDS " + rightBound.x + ", " + leftBound.x);
+        // TODO: make this the left and right bound of rect transform 
+        Vector3 rightBound = cam.ScreenToWorldPoint(new Vector3(min.x, 0, 0));
+        Vector3 leftBound = cam.ScreenToWorldPoint(new Vector3(max.x, 0, 0));
+        // Debug.Log("BOUNDS " + rightBound.x + ", " + leftBound.x);
 
-        Vector3 newDepth = cam.ScreenToWorldPoint(new Vector3(0, (camY + height / 2f) - 1, 0));
+        Vector3 newDepth = cam.ScreenToWorldPoint(new Vector3(0, (camY - height) - 2, 0));
 
         float pointOnCurve = PointOnCurve(newDepth.y);
 
@@ -123,8 +135,8 @@ public class ItemSpawner : MonoBehaviour
     Vector3 GetAvailablePosition(CircleCollider2D coll, float leftBound, float rightBound, float newDepth)
     {
         Vector3 rand = new Vector3(
-            Random.Range(leftBound, rightBound), Random.Range(newDepth - 0.5f, newDepth + 0.5f));
-        Collider2D hit = Physics2D.OverlapCircle(rand, coll.radius);
+            Random.Range(leftBound, rightBound), Random.Range(newDepth - 2f, newDepth + 2f), 0.1f);
+        Collider2D hit = Physics2D.OverlapCircle(rand, coll.radius + 0.25f);
         if (hit)
         {
             return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
