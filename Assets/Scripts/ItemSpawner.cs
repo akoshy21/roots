@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using Random = UnityEngine.Random;
 
 public class ItemSpawner : MonoBehaviour
 {
+    public GameObject objectContainer;
+
     [Header("Prefabs")] public GameObject waterPocket;
     public GameObject fishPocket, bonePocket, applePocket, rock;
 
@@ -21,31 +25,115 @@ public class ItemSpawner : MonoBehaviour
     [Header("Rock")] public float rockTolerance = 2;
     public int minRockCount, maxRockCount;
 
-    void MoveDown()
+    public static ItemSpawner Instance;
+
+    private Camera cam;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        cam = Camera.main;
+    }
+
+    private void Start()
+    {
+        MoveDown();
+    }
+
+    public void MoveDown()
     {
         // Get the camera height
         float height = Screen.height;
         float width = Screen.width;
 
         // Now we get the position of the camera
-        float camY = Camera.main.transform.position.y;
-        float camX = Camera.main.transform.position.x;
+        float camY = cam.transform.position.y;
+        float camX = cam.transform.position.x;
 
-        float rightBound = (camX + width / 2f);
-        float leftBound = (camX - width / 2f);
+        // TODO: make this the left and right bound of rect transform 
+        Vector3 rightBound = cam.ScreenToWorldPoint(new Vector3((camX + width / 2f), 0, 0));
+        Vector3 leftBound = cam.ScreenToWorldPoint(new Vector3((camX - width / 2f), 0, 0));
+        
+        Debug.Log("BOUNDS " + rightBound.x + ", " + leftBound.x);
 
-        float newDepth = (camY + height / 2f) + 1;
+        Vector3 newDepth = cam.ScreenToWorldPoint(new Vector3(0, (camY + height / 2f) - 1, 0));
 
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(0, newDepth, 0));
+        float pointOnCurve = PointOnCurve(newDepth.y);
 
-        float pointOnCurve = PointOnCurve(worldPoint.y);
+        int rockCount = (int) Mathf.Lerp(minRockCount, maxRockCount, pointOnCurve);
+        rockCount = (int) Random.Range(rockCount - rockTolerance, rockCount + rockTolerance);
+
+        if (rockCount < 0) rockCount = 0;
+
+        for (int i = 0; i < rockCount; i++)
+        {
+            GameObject tempRock = Instantiate(rock, objectContainer.transform);
+            tempRock.transform.position =
+                GetAvailablePosition(tempRock.GetComponent<CircleCollider2D>(),
+                    leftBound.x, rightBound.x, newDepth.y);
+        }
+
+        int nutriCount = (int) Mathf.Lerp(maxNutriCount, minNutriCount, pointOnCurve);
+        nutriCount = (int) Random.Range(nutriCount - nutriTolerance, nutriCount + nutriTolerance);
+        if (nutriCount < 0) nutriCount = 0;
+
+        float nutriTotal = Mathf.Lerp(minNutriTotal, maxNutriTotal, pointOnCurve);
+        nutriTotal = Random.Range(nutriTotal - (nutriTolerance * 5), nutriTotal + (nutriTolerance * 5));
+
+
+        for (int i = 0; i < nutriCount; i++)
+        {
+            GameObject tempNutri = Instantiate(fishPocket, objectContainer.transform);
+            tempNutri.transform.position =
+                GetAvailablePosition(tempNutri.GetComponent<CircleCollider2D>(),
+                    leftBound.x, rightBound.x, newDepth.y);
+            tempNutri.GetComponent<Pocket>().SetTotal(nutriTotal);
+        }
+
+        int waterCount = (int) Mathf.Lerp(maxWaterCount, minWaterCount, pointOnCurve);
+        waterCount = (int) Random.Range(waterCount - waterTolerance, waterCount + waterTolerance);
+        if (waterCount < 0) waterCount = 0;
+
+        float waterTotal = Mathf.Lerp(minWaterTotal, maxWaterTotal, pointOnCurve);
+        waterTotal = Random.Range(waterTotal - (waterTolerance * 5), waterTotal + (waterTolerance * 5));
+
+
+        for (int i = 0; i < waterCount; i++)
+        {
+            GameObject tempWater = Instantiate(waterPocket, objectContainer.transform);
+            tempWater.transform.position =
+                GetAvailablePosition(tempWater.GetComponent<CircleCollider2D>(),
+                    leftBound.x, rightBound.x, newDepth.y);
+            tempWater.GetComponent<Pocket>().SetTotal(waterTotal);
+        }
+    }
+
+    Vector3 GetAvailablePosition(CircleCollider2D coll, float leftBound, float rightBound, float newDepth)
+    {
+        Vector3 rand = new Vector3(
+            Random.Range(leftBound, rightBound), Random.Range(newDepth - 0.5f, newDepth + 0.5f));
+        Collider2D hit = Physics2D.OverlapCircle(rand, 1);
+        if (hit)
+        {
+            return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
+        }
+
+        return rand;
     }
 
     float PointOnCurve(float currentDepth)
     {
         float x = currentDepth / maxDepth;
 
-        if (x > 5)
+        if (x < 0.5)
             return 4 * Mathf.Pow(x, 3);
 
         return 1 - Mathf.Pow(-2 * x + 2, 3) / 2;

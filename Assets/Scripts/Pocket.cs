@@ -69,4 +69,9 @@ public class Pocket : MonoBehaviour
 
         if (currentValue <= 0) waterDrain = null;
     }
+
+    public void SetTotal(float total)
+    {
+        totalValue = total;
+    }
 }
