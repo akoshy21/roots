@@ -4649,7 +4649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128862545}
   m_Layer: 0
-  m_Name: RootParent
+  m_Name: RootControlParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
