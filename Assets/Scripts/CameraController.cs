@@ -12,6 +12,9 @@ public class CameraController : MonoBehaviour
 
     private float _step = 0;
 
+    // TODO: SCROLL UP TO THE TOP OF THE DIRT ON GAME-OVER SO YOU CAN SEE YOUR ROOT STRUCTURE (ALMOST AN ARTISTIC END)
+    // TODO: OPENING CUTSCENE FROM ACORN.
+    
     public void CheckY(Vector3 pos)
     {
         Debug.Log("check y " + _lowestY  + pos.y);
