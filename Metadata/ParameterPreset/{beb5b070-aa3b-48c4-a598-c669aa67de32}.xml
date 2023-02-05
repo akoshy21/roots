@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{beb5b070-aa3b-48c4-a598-c669aa67de32}">
+		<property name="name">
+			<value>If Stop</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d156848d-f0db-4d97-879b-bf6f25867016}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{18b51b3c-d9ed-4017-8d7a-f1444b05eef2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{18b51b3c-d9ed-4017-8d7a-f1444b05eef2}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

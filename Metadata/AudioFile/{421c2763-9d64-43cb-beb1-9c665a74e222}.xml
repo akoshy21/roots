@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{421c2763-9d64-43cb-beb1-9c665a74e222}">
+		<property name="assetPath">
+			<value>Music/Xpho.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.4375056689342403</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b38c1d4-bd46-4401-abf3-f9387e7739da}</destination>
+		</relationship>
+	</object>
+</objects>
