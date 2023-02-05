@@ -40,6 +40,8 @@ public class RootController : MonoBehaviour
     private Vector2 _direction;
 
     public bool active = true;
+
+    public AudioSource aSource;
     
     private void Awake()
     {
@@ -90,6 +92,9 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
+            
+            if(aSource.isPlaying)
+                aSource.Play();
         }
         else
         {
@@ -127,6 +132,8 @@ public class RootController : MonoBehaviour
         rb.angularVelocity = 0;
         _direction = Vector2.zero;
         _cam.CheckY(_original);
+        aSource.Stop();
+
 
         rb.isKinematic = true;
     }
