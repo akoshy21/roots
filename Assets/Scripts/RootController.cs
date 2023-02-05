@@ -93,7 +93,7 @@ public class RootController : MonoBehaviour
             _click = false;
             _original = newPosRight;
             
-            if(aSource.isPlaying)
+            if(aSource.isPlaying && active)
                 aSource.Play();
         }
         else
@@ -131,7 +131,8 @@ public class RootController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0;
         _direction = Vector2.zero;
-        _cam.CheckY(_original);
+        if(active)
+           _cam.CheckY(_original);
         aSource.Stop();
 
 

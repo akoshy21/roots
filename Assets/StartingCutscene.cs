@@ -23,7 +23,7 @@ public class StartingCutscene : MonoBehaviour
         
         while (pos.y > lineEnd)
         {
-            Debug.Log("extending " + pos.y);
+            // Debug.Log("extending " + pos.y);
             pos.y += step;
             line.SetPosition(1, pos);
             yield return new WaitForSeconds(0.1f);

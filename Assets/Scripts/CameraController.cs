@@ -18,6 +18,9 @@ public class CameraController : MonoBehaviour
 
     public float depthToSpawn = 4f;
     private float _depth = 0f;
+    private bool _gameEnd = false;
+
+    public GameObject menuUI;
 
     // TODO: SCROLL UP TO THE TOP OF THE DIRT ON GAME-OVER SO YOU CAN SEE YOUR ROOT STRUCTURE (ALMOST AN ARTISTIC END)
     // TODO: OPENING CUTSCENE FROM ACORN
@@ -45,16 +48,20 @@ public class CameraController : MonoBehaviour
         if (_step > 1)
         {
             _step = 1;
+            
+            if(_gameEnd)
+                menuUI.SetConditionalActive(true);
         }
 
         if (Vector3.Distance(_origPos, _endPos) > 0.25f)
         {
             transform.position = Vector3.Lerp(_origPos, _endPos, _step);
-        } 
+        }  
     }
 
     public void ScrollToTop()
     {
+        _gameEnd = true;
         _origPos = transform.position;
         _endPos = new Vector3(_origPos.x, topY, -10);
         _step = 0;
