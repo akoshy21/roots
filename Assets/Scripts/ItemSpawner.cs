@@ -31,7 +31,9 @@ public class ItemSpawner : MonoBehaviour
 
     private Camera cam;
 
-    private float lastDepth = -35;
+    private float lastDepth = -36;
+
+    public GameObject background;
 
     private void Awake()
     {
@@ -83,11 +85,16 @@ public class ItemSpawner : MonoBehaviour
 
         Vector3 newDepth = cam.ScreenToWorldPoint(new Vector3(0, (camY - height) - 2, 0));
 
+
         if (lastDepth - newDepth.y > 4)
         {
             lastDepth = newDepth.y;
             float pointOnCurve = PointOnCurve(newDepth.y);
 
+            GameObject bg = Instantiate(background);
+            bg.transform.position = new Vector3(1.3518f, newDepth.y, 0.2f);
+
+            
             int rockCount = (int) Mathf.Lerp(minRockCount, maxRockCount, pointOnCurve);
             rockCount = (int) Random.Range(rockCount - rockTolerance, rockCount + rockTolerance);
 

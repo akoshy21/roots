@@ -35,5 +35,9 @@ public class StartingCutscene : MonoBehaviour
         }
         
         Camera.main.GetComponent<CameraController>().CheckY(Vector3.zero);
+        
+        PlantManager.Instance.StartGame();
+
+        GetComponent<Rigidbody2D>().isKinematic = true;
     }
 }

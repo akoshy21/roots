@@ -24,6 +24,8 @@ public class PlantManager : MonoBehaviour
     private readonly List<RootController> _activeRoots = new List<RootController>();
 
     private Coroutine _decay;
+
+    private bool _gameActive = true;
     
     public void Awake()
     {
@@ -33,7 +35,7 @@ public class PlantManager : MonoBehaviour
             Instance = this;
     }
 
-    private void Start()
+    public void StartGame()
     {
         _decay = StartCoroutine(DecayValues());
     }
@@ -46,7 +48,7 @@ public class PlantManager : MonoBehaviour
 
     IEnumerator DecayValues()
     {
-        while (true)
+        while (_gameActive)
         {
             waterCurrent -= decayRateWater;
             nutrientCurrent -= decayRateNutrients;
@@ -96,6 +98,7 @@ public class PlantManager : MonoBehaviour
 
     public void LoseGame()
     {
+        _gameActive = false;
         cam.ScrollToTop();
     }
 

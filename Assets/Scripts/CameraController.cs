@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
 
     public void CheckY(Vector3 pos)
     {
-        Debug.Log("check y " + _lowestY + pos.y);
+        // Debug.Log("check y " + _lowestY + pos.y);
 
         if (pos.y < _lowestY)
         {
