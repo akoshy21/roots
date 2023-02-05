@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8314250859577701791}
   - component: {fileID: 7676449223080246848}
   m_Layer: 0
-  m_Name: WaterPocket
+  m_Name: MediumWaterPocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
