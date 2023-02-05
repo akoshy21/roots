@@ -16,11 +16,11 @@ public class CameraController : MonoBehaviour
 
     public float LowestY => _lowestY;
 
-    public float depthToSpawn = 4f;
-    private float _depth = 0f;
     private bool _gameEnd = false;
 
-    public GameObject menuUI;
+    public GameObject menuUI, scraper;
+
+    public GameObject smallTree, bigTree,acorn;
 
     // TODO: SCROLL UP TO THE TOP OF THE DIRT ON GAME-OVER SO YOU CAN SEE YOUR ROOT STRUCTURE (ALMOST AN ARTISTIC END)
     // TODO: OPENING CUTSCENE FROM ACORN
@@ -31,14 +31,27 @@ public class CameraController : MonoBehaviour
 
         if (pos.y < _lowestY)
         {
-            _depth += _lowestY - pos.y;
-            
             _lowestY = pos.y;
             _origPos = transform.position;
             _endPos = new Vector3(_origPos.x, _lowestY, -10);
             _step = 0;
 
             ItemSpawner.Instance.MoveDown();
+
+            if (_lowestY < -15)
+            {
+                bigTree.SetConditionalActive(true);
+                smallTree.SetConditionalActive(false);
+                acorn.SetConditionalActive(false);
+            }
+            else if(_lowestY < -3)
+            {
+                smallTree.SetConditionalActive(true);
+                acorn.SetConditionalActive(false);
+            }
+            
+            if(_lowestY < -3.8)
+                scraper.SetConditionalActive(true);
         }
     }
 
