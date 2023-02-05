@@ -50,6 +50,7 @@ public class ItemSpawner : MonoBehaviour
 
     public void MoveDown()
     {
+        Physics2D.autoSyncTransforms = true;
         // Get the camera height
         float height = Screen.height;
         float width = Screen.width;
@@ -114,13 +115,16 @@ public class ItemSpawner : MonoBehaviour
                     leftBound.x, rightBound.x, newDepth.y);
             tempWater.GetComponent<Pocket>().SetTotal(waterTotal);
         }
+
+
+        Physics2D.autoSyncTransforms = false;
     }
 
     Vector3 GetAvailablePosition(CircleCollider2D coll, float leftBound, float rightBound, float newDepth)
     {
         Vector3 rand = new Vector3(
             Random.Range(leftBound, rightBound), Random.Range(newDepth - 0.5f, newDepth + 0.5f));
-        Collider2D hit = Physics2D.OverlapCircle(rand, 1);
+        Collider2D hit = Physics2D.OverlapCircle(rand, coll.radius);
         if (hit)
         {
             return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
