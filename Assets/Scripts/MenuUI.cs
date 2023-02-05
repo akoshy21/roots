@@ -8,12 +8,15 @@ public class MenuUI : MonoBehaviour
     public static bool started=false;
     public GameObject menuUI;
 
+    public GameObject acorn;
+
     private void Start()
     {
         Debug.Log("Scene started");
         if (started)
         {
             menuUI.SetActive(false);
+            acorn.SetConditionalActive(true);
         }
     }
     public void startGame()
