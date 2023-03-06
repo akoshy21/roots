@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6b6ba779-a92d-45a5-b31b-cf83817eaecc}">
+		<property name="assetPath">
+			<value>538710__joshvanhansen__spaghetti-being-snapped-foodingr.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.7271933471933472</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b38c1d4-bd46-4401-abf3-f9387e7739da}</destination>
+		</relationship>
+	</object>
+</objects>

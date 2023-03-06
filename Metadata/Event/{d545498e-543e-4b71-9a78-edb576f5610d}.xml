@@ -32,7 +32,8 @@
 			<destination>{ecd81454-6770-4fbe-984d-12c96b70a1b5}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ab7437e2-4d02-4aae-b54f-663e1107b1b7}</destination>
+			<destination>{3840eab9-1f1d-4007-9c7d-0ddaa31a2276}</destination>
+			<destination>{58f6e092-d3e0-4c7f-b77a-733e0e4b3f99}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{399b71f3-fcaf-41a8-a345-db9b294df219}">
@@ -59,11 +60,8 @@
 	<object class="EventAutomatableProperties" id="{d20a79d6-75ee-4e7d-9ad2-3f591aa03e9a}" />
 	<object class="MarkerTrack" id="{dbb2204f-7794-41a1-ac35-606eb67cfb33}" />
 	<object class="GroupTrack" id="{e6db8b19-1f91-4db6-b0ff-251f597f7ed9}">
-		<relationship name="automationTracks">
-			<destination>{8e3018b3-8c2b-4e46-9331-accc966cd8b2}</destination>
-		</relationship>
 		<relationship name="modules">
-			<destination>{54ea6829-acbf-46ed-a74d-02bb90a9121e}</destination>
+			<destination>{c3d5d24c-1cfb-4911-a813-14c121687cc3}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{5739b063-5995-404f-a75d-134242f456b3}</destination>
@@ -71,7 +69,7 @@
 	</object>
 	<object class="Timeline" id="{ecd81454-6770-4fbe-984d-12c96b70a1b5}">
 		<relationship name="modules">
-			<destination>{54ea6829-acbf-46ed-a74d-02bb90a9121e}</destination>
+			<destination>{c3d5d24c-1cfb-4911-a813-14c121687cc3}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{001d1c3d-f02e-4b97-be13-480060458844}">
@@ -91,31 +89,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d67113d8-b6ee-4d25-895b-7ea25cb99d7f}" />
-	<object class="AutomationTrack" id="{8e3018b3-8c2b-4e46-9331-accc966cd8b2}">
-		<relationship name="automator">
-			<destination>{83a2b8cc-011e-4fc6-ae30-fd878053032c}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{54ea6829-acbf-46ed-a74d-02bb90a9121e}">
+	<object class="SingleSound" id="{c3d5d24c-1cfb-4911-a813-14c121687cc3}">
 		<property name="length">
-			<value>0.32437641723356009</value>
+			<value>0.092222222222222219</value>
 		</property>
-		<property name="pitch">
-			<value>5</value>
-		</property>
-		<relationship name="automators">
-			<destination>{83a2b8cc-011e-4fc6-ae30-fd878053032c}</destination>
-		</relationship>
-		<relationship name="modulators">
-			<destination>{37b10c92-8d7d-4b75-a81c-0c400faebf1c}</destination>
-		</relationship>
 		<relationship name="audioFile">
-			<destination>{b3553bf2-f5e3-4e10-9718-94f2dd357a4b}</destination>
+			<destination>{493d945a-6018-4c92-b8ca-75d72f7c8a32}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{5739b063-5995-404f-a75d-134242f456b3}">
 		<property name="volume">
-			<value>-5.5</value>
+			<value>-6</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -137,16 +121,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{2a2efeea-0d85-470d-bd94-1ee415808da0}" />
 	<object class="MixerBusFader" id="{5684f0de-db22-409f-8cb6-b9cc0f087259}" />
-	<object class="Automator" id="{83a2b8cc-011e-4fc6-ae30-fd878053032c}">
-		<property name="nameOfPropertyBeingAutomated">
-			<value>pitch</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{37b10c92-8d7d-4b75-a81c-0c400faebf1c}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>pitch</value>
-		</property>
-	</object>
 	<object class="MixerBusEffectChain" id="{196c9112-c747-4172-8e34-d4776ecb75cd}">
 		<relationship name="effects">
 			<destination>{80c72dd1-542e-48ce-ab0b-88c799e325ba}</destination>
@@ -157,8 +131,14 @@
 	<object class="MixerBusFader" id="{42d6a6be-cb9c-4697-9290-7483da8306e8}" />
 	<object class="MixerBusFader" id="{80c72dd1-542e-48ce-ab0b-88c799e325ba}" />
 	<object class="ThreeEQEffect" id="{ad633d08-00e5-4b31-9f0c-8b67cd086853}">
+		<property name="lowGain">
+			<value>-12</value>
+		</property>
 		<property name="midGain">
-			<value>-6.5</value>
+			<value>-6</value>
+		</property>
+		<property name="highGain">
+			<value>-3</value>
 		</property>
 	</object>
 </objects>

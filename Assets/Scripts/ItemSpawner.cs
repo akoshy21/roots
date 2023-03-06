@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using Random = UnityEngine.Random;
+using FMODUnity;
+
+[RequireComponent(typeof(StudioEventEmitter))]
 
 public class ItemSpawner : MonoBehaviour
 {
@@ -35,6 +38,9 @@ public class ItemSpawner : MonoBehaviour
 
     public GameObject background;
 
+    // FMOD audio
+    private StudioEventEmitter emitter;
+
     private void Awake()
     {
         if (Instance == null)
@@ -52,6 +58,8 @@ public class ItemSpawner : MonoBehaviour
     private void Start()
     {
         MoveDown();
+
+     
     }
 
     public void MoveDown()

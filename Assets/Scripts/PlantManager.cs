@@ -84,7 +84,9 @@ public class PlantManager : MonoBehaviour
             Debug.Log("Adding Water...");
             waterCurrent += waterAdded;
             waterBar.SetFill(waterCurrent / waterMax);
+            
         }
+        AudioManager.instance.PlayOneShot(FMOD_Events.instance.DrainPocket, this.transform.position);
     }
 
     public void AddNutrient(float nutrientAdded)

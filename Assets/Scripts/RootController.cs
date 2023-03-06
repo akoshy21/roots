@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
 
 public class RootController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class RootController : MonoBehaviour
 
     public Rigidbody2D rb;
     public SpriteRenderer sr;
-    
+
     public GameObject rootControllerParent;
     public GameObject rootPrefab;
     public GameObject rootParent;
@@ -41,16 +42,24 @@ public class RootController : MonoBehaviour
 
     public bool active = true;
 
-    public AudioSource aSource;
-    
+    //AudioFmod
+    private EventInstance playerMovement;
+    //
+
     private void Awake()
     {
         _cam = Camera.main.GetComponent<CameraController>();
+        
     }
 
+    
+  
     private void Start()
     {
         PlantManager.Instance.AddRootController(this);
+        playerMovement = AudioManager.instance.CreateInstance(FMOD_Events.instance.playerMovement);
+
+
     }
 
     void Update()
@@ -58,15 +67,25 @@ public class RootController : MonoBehaviour
         if (_click && Time.time > (_clickTime + clickDelta))
         {
             _click = false;
-        }
+            UpdateSound();  
+    }
         
     }
-
+    private void start()
+        {
+       
+}
     private void FixedUpdate()
     {
         if (_direction.magnitude > 0)
+        {
             rb.velocity = _direction * speed;
+        
+            return; 
+        }
+        UpdateSound();
     }
+  
 
     private void OnMouseDown()
     {
@@ -92,12 +111,14 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
+            AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
         }
         else
         {
             _click = true;
             _clickTime = Time.time;
         }
+        
     }
 
     void OnMouseDrag()
@@ -111,8 +132,7 @@ public class RootController : MonoBehaviour
             _dragging = true;
             _timeOnRoot += Time.deltaTime;
                         
-            if(!aSource.isPlaying && active)
-                aSource.Play();
+          
         }
 
         if (_dragging)
@@ -133,7 +153,7 @@ public class RootController : MonoBehaviour
         _direction = Vector2.zero;
         if(active)
            _cam.CheckY(_original);
-        aSource.Stop();
+ 
 
 
         rb.isKinematic = true;
@@ -155,14 +175,17 @@ public class RootController : MonoBehaviour
         if (_drawing != null)
         {
             StopCoroutine(_drawing);
+            ;
         }
 
         _drawing = StartCoroutine(DrawRoot());
+        UpdateSound();  
     }
 
     void FinishRoot()
     {
         StopCoroutine(_drawing);
+        UpdateSound (); 
     }
 
     IEnumerator DrawRoot()
@@ -199,7 +222,9 @@ public class RootController : MonoBehaviour
         line.SetPosition(0, pos1);
         line.SetPosition(1, pos2);
 
-        roots.Add(line);
+    
+
+    roots.Add(line);
     }
 
     Vector2[] ToV2(Vector3[] v3)
@@ -218,6 +243,26 @@ public class RootController : MonoBehaviour
         active = false;
         rb.simulated = false;
         sr.color = new Color(152,255 , 150, 0);
+        
 
+    }
+    //fmodaudio
+    private void UpdateSound()
+    {
+
+        if (speed!= 0 && _dragging)
+        {
+
+            PLAYBACK_STATE playbackState;
+            playerMovement.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerMovement.start();
+            }
+        }
+        else
+        {
+            playerMovement.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }
