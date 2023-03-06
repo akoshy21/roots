@@ -102,6 +102,17 @@ public class PlantManager : MonoBehaviour
         cam.ScrollToTop();
     }
 
+    public void PauseGame()
+    {
+        _gameActive = false;
+    }
+    
+    
+    public void PlayGame()
+    {
+        _gameActive = true;
+    }
+
     public void DeadRoot()
     {
         if (!HasActiveRoots())
