@@ -613,8 +613,9 @@ MonoBehaviour:
   rootControllerParent: {fileID: 2128862543}
   rootPrefab: {fileID: 6279538643528847258, guid: d06d20b4ecc29034291d0a1378b176d0, type: 3}
   rootParent: {fileID: 2102312856}
-  maxThickness: 0.01
-  maxTime: 6
+  maxThickness: 1
+  minThickness: 0.1
+  maxTime: 10
   roots: []
   active: 1
   aSource: {fileID: 154933211}
@@ -1791,10 +1792,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3077c96a5fbe43cab6710398e7a1abe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSpeed: 0.4
+  camStep: 0.6
+  camSpeed: 1
   topY: 3.18
   menuUI: {fileID: 154403942}
-  scraper: {fileID: 1664557420}
+  scraper: {fileID: 0}
   smallTree: {fileID: 243085311}
   bigTree: {fileID: 597867465}
   acorn: {fileID: 1496201305}
@@ -1851,8 +1853,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1664557421}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2418,7 +2419,7 @@ GameObject:
   - component: {fileID: 783756976}
   - component: {fileID: 783756975}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2489,7 +2490,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1295441669}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: ShowOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3903,7 +3904,7 @@ GameObject:
   - component: {fileID: 1281636434}
   - component: {fileID: 1281636433}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3974,7 +3975,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1295441669}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: ShowOptions
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4103,7 +4104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310246687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.49999997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.49999997, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1225290686}
@@ -5327,72 +5328,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642754844}
   m_CullTransparentMesh: 1
---- !u!1 &1664557420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1664557421}
-  - component: {fileID: 1664557423}
-  - component: {fileID: 1664557422}
-  m_Layer: 0
-  m_Name: Scraper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1664557421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664557420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 5.1, z: 10}
-  m_LocalScale: {x: 20.913908, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1664557422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664557420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e72f5cba06be841aa860ba6f9dfd30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!68 &1664557423
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664557420}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.49999997, y: 0}
-  - {x: 0.49999997, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1670511900
 GameObject:
   m_ObjectHideFlags: 0

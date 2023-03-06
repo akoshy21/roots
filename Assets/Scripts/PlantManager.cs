@@ -26,7 +26,8 @@ public class PlantManager : MonoBehaviour
     private Coroutine _decay;
 
     private bool _gameActive = true;
-    
+    public static bool GAME_ACTIVE => Instance._gameActive;
+
     public void Awake()
     {
         if (Instance != null)

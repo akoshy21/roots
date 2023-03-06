@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RootController : MonoBehaviour
@@ -31,7 +32,7 @@ public class RootController : MonoBehaviour
 
     private CameraController _cam;
 
-    public float maxThickness = 2f;
+    public float maxThickness = 2f, minThickness = 0.5f;
     public float maxTime = 3;
     private float _timeOnRoot = 0;
 
@@ -59,13 +60,23 @@ public class RootController : MonoBehaviour
         {
             _click = false;
         }
-        
     }
 
     private void FixedUpdate()
     {
-        if (_direction.magnitude > 0)
+        if (_direction.magnitude > 0 && PlantManager.GAME_ACTIVE)
             rb.velocity = _direction * speed;
+        
+    }
+
+    private void OnBecameInvisible()
+    {
+        if(transform.position.y > Camera.main.transform.position.y)
+            DestroyRoot();
+        else
+        {
+            _cam.CheckY(_original + Vector3.down);
+        }
     }
 
     private void OnMouseDown()
@@ -76,7 +87,7 @@ public class RootController : MonoBehaviour
         _original = transform.position;
         StartRoot();
 
-        if (_click && Time.time <= (_clickTime + clickDelta))
+        if (_click && Time.time <= (_clickTime + clickDelta) )
         {
             // If double click, split the root...
             Vector3 newPosLeft = _original + (Constants.LEFT_DOWN * splitDist);
@@ -102,41 +113,50 @@ public class RootController : MonoBehaviour
 
     void OnMouseDrag()
     {
-        // Object is being dragged.
-        _timeCount += Time.deltaTime;
-        if (_timeCount > 0.25f)
+        if (PlantManager.GAME_ACTIVE)
         {
-            //Debug.Log("Dragging:" + Input.mousePosition);
-            _timeCount = 0.0f;
-            _dragging = true;
-            _timeOnRoot += Time.deltaTime;
-                        
-            if(!aSource.isPlaying && active)
-                aSource.Play();
-        }
+            // Object is being dragged.
+            _timeCount += Time.deltaTime;
+            if (_timeCount > 0.25f)
+            {
+                //Debug.Log("Dragging:" + Input.mousePosition);
+                _timeCount = 0.0f;
+                _dragging = true;
+                _timeOnRoot += Time.deltaTime;
 
-        if (_dragging)
-        {
-            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 dir = Vector3.Normalize(position - _original);
-            dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
-            _direction = dir;
-          //  transform.position = _original;
+                if (!aSource.isPlaying && active)
+                    aSource.Play();
+            }
+
+            if (_dragging)
+            {
+                Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 dir = Vector3.Normalize(position - _original);
+                dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
+                _direction = dir;
+                //  transform.position = _original;
+            }
+
         }
     }
 
     private void OnMouseUp()
     {
-        FinishRoot();
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0;
-        _direction = Vector2.zero;
-        if(active)
-           _cam.CheckY(_original);
-        aSource.Stop();
+        if (PlantManager.GAME_ACTIVE)
+        {
+            FinishRoot();
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
+            _direction = Vector2.zero;
+            if (active)
+                _cam.CheckY(_original);
+            aSource.Stop();
+            _dragging = false;
+            _timeCount = 0;
 
 
-        rb.isKinematic = true;
+            rb.isKinematic = true;
+        }
     }
 
     void OnMouseOver()
@@ -177,7 +197,11 @@ public class RootController : MonoBehaviour
         while (true)
         {
             line.positionCount++;
-            line.widthMultiplier += maxThickness * _timeOnRoot/maxTime;
+
+            float step = _timeOnRoot / maxTime;
+            if (step > 1) step = 1;
+            
+            line.widthMultiplier = minThickness + maxThickness * step;
             
             _original = transform.position;
             _original.z = 0;
@@ -220,4 +244,5 @@ public class RootController : MonoBehaviour
         sr.color = new Color(152,255 , 150, 0);
 
     }
+    
 }
