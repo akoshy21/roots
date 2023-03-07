@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{42a8dce3-987f-40db-8355-a95c4825fc13}">
+		<property name="assetPath">
+			<value>319231__worthahep88__stick-snap-1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.5786666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b38c1d4-bd46-4401-abf3-f9387e7739da}</destination>
+		</relationship>
+	</object>
+</objects>
