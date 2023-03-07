@@ -31,9 +31,6 @@
 		<relationship name="timeline">
 			<destination>{a91fca6c-e312-4293-b884-7eacc13074f8}</destination>
 		</relationship>
-		<relationship name="banks">
-			<destination>{f99669e9-fbf1-42dd-9180-b99e007415d9}</destination>
-		</relationship>
 	</object>
 	<object class="EventMixer" id="{fdd2cc67-d37b-4a7a-95a0-868eca2422d0}">
 		<relationship name="masterBus">
@@ -213,6 +210,15 @@
 	<object class="ThreeEQEffect" id="{64e5b848-49f4-43f2-957c-a2618477afdb}">
 		<property name="lowGain">
 			<value>-0.5</value>
+		</property>
+		<property name="midGain">
+			<value>-1</value>
+		</property>
+		<property name="highGain">
+			<value>-6</value>
+		</property>
+		<property name="highCrossover">
+			<value>1900</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{403c3c62-1280-4bad-aee9-d7cb6da15694}">

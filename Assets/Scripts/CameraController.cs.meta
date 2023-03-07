@@ -1,3 +1,16 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 3077c96a5fbe43cab6710398e7a1abe8
-timeCreated: 1675462583
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - menuUI: {instanceID: 0}
+  - scraper: {instanceID: 0}
+  - smallTree: {instanceID: 0}
+  - bigTree: {instanceID: 0}
+  - acorn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using FMOD.Studio;
 
 public class RootController : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class RootController : MonoBehaviour
 
     public Rigidbody2D rb;
     public SpriteRenderer sr;
-    
+
     public GameObject rootControllerParent;
     public GameObject rootPrefab;
     public GameObject rootParent;
@@ -32,7 +32,7 @@ public class RootController : MonoBehaviour
 
     private CameraController _cam;
 
-    public float maxThickness = 2f, minThickness = 0.5f;
+    public float maxThickness = 2f;
     public float maxTime = 3;
     private float _timeOnRoot = 0;
 
@@ -42,16 +42,24 @@ public class RootController : MonoBehaviour
 
     public bool active = true;
 
-    public AudioSource aSource;
-    
+    //AudioFmod
+    private EventInstance playerMovement;
+    //
+
     private void Awake()
     {
         _cam = Camera.main.GetComponent<CameraController>();
+        
     }
 
+    
+  
     private void Start()
     {
         PlantManager.Instance.AddRootController(this);
+        playerMovement = AudioManager.instance.CreateInstance(FMOD_Events.instance.playerMovement);
+
+
     }
 
     void Update()
@@ -59,25 +67,25 @@ public class RootController : MonoBehaviour
         if (_click && Time.time > (_clickTime + clickDelta))
         {
             _click = false;
-        }
+            UpdateSound();  
     }
-
-    private void FixedUpdate()
-    {
-        if (_direction.magnitude > 0 && PlantManager.GAME_ACTIVE)
-            rb.velocity = _direction * speed;
         
     }
-
-    private void OnBecameInvisible()
-    {
-        if(transform.position.y > Camera.main.transform.position.y)
-            DestroyRoot();
-        else
+    private void start()
         {
-            _cam.CheckY(_original + Vector3.down);
+       
+}
+    private void FixedUpdate()
+    {
+        if (_direction.magnitude > 0)
+        {
+            rb.velocity = _direction * speed;
+        
+            return; 
         }
+        UpdateSound();
     }
+  
 
     private void OnMouseDown()
     {
@@ -87,7 +95,7 @@ public class RootController : MonoBehaviour
         _original = transform.position;
         StartRoot();
 
-        if (_click && Time.time <= (_clickTime + clickDelta) )
+        if (_click && Time.time <= (_clickTime + clickDelta))
         {
             // If double click, split the root...
             Vector3 newPosLeft = _original + (Constants.LEFT_DOWN * splitDist);
@@ -103,60 +111,52 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
+            AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
         }
         else
         {
             _click = true;
             _clickTime = Time.time;
         }
+        
     }
 
     void OnMouseDrag()
     {
-        if (PlantManager.GAME_ACTIVE)
+        // Object is being dragged.
+        _timeCount += Time.deltaTime;
+        if (_timeCount > 0.25f)
         {
-            // Object is being dragged.
-            _timeCount += Time.deltaTime;
-            if (_timeCount > 0.25f)
-            {
-                //Debug.Log("Dragging:" + Input.mousePosition);
-                _timeCount = 0.0f;
-                _dragging = true;
-                _timeOnRoot += Time.deltaTime;
+            //Debug.Log("Dragging:" + Input.mousePosition);
+            _timeCount = 0.0f;
+            _dragging = true;
+            _timeOnRoot += Time.deltaTime;
+                        
+          
+        }
 
-                if (!aSource.isPlaying && active)
-                    aSource.Play();
-            }
-
-            if (_dragging)
-            {
-                Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 dir = Vector3.Normalize(position - _original);
-                dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
-                _direction = dir;
-                //  transform.position = _original;
-            }
-
+        if (_dragging)
+        {
+            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = Vector3.Normalize(position - _original);
+            dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
+            _direction = dir;
+          //  transform.position = _original;
         }
     }
 
     private void OnMouseUp()
     {
-        if (PlantManager.GAME_ACTIVE)
-        {
-            FinishRoot();
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
-            _direction = Vector2.zero;
-            if (active)
-                _cam.CheckY(_original);
-            aSource.Stop();
-            _dragging = false;
-            _timeCount = 0;
+        FinishRoot();
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        _direction = Vector2.zero;
+        if(active)
+           _cam.CheckY(_original);
+ 
 
 
-            rb.isKinematic = true;
-        }
+        rb.isKinematic = true;
     }
 
     void OnMouseOver()
@@ -175,14 +175,17 @@ public class RootController : MonoBehaviour
         if (_drawing != null)
         {
             StopCoroutine(_drawing);
+            ;
         }
 
         _drawing = StartCoroutine(DrawRoot());
+        UpdateSound();  
     }
 
     void FinishRoot()
     {
         StopCoroutine(_drawing);
+        UpdateSound (); 
     }
 
     IEnumerator DrawRoot()
@@ -197,11 +200,7 @@ public class RootController : MonoBehaviour
         while (true)
         {
             line.positionCount++;
-
-            float step = _timeOnRoot / maxTime;
-            if (step > 1) step = 1;
-            
-            line.widthMultiplier = minThickness + maxThickness * step;
+            line.widthMultiplier += maxThickness * _timeOnRoot/maxTime;
             
             _original = transform.position;
             _original.z = 0;
@@ -223,7 +222,9 @@ public class RootController : MonoBehaviour
         line.SetPosition(0, pos1);
         line.SetPosition(1, pos2);
 
-        roots.Add(line);
+    
+
+    roots.Add(line);
     }
 
     Vector2[] ToV2(Vector3[] v3)
@@ -242,7 +243,26 @@ public class RootController : MonoBehaviour
         active = false;
         rb.simulated = false;
         sr.color = new Color(152,255 , 150, 0);
+        
 
     }
-    
+    //fmodaudio
+    private void UpdateSound()
+    {
+
+        if (speed!= 0 && _dragging)
+        {
+
+            PLAYBACK_STATE playbackState;
+            playerMovement.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerMovement.start();
+            }
+        }
+        else
+        {
+            playerMovement.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
 }

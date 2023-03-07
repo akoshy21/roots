@@ -2,10 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity; 
 
 
 public class StartingCutscene : MonoBehaviour
 {
+   
+
+
     public LineRenderer line;
     public float lineEnd;
     public float step;
@@ -14,6 +18,7 @@ public class StartingCutscene : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        AudioManager.instance.PlayOneShot(FMOD_Events.instance.acornGroundHit, this.transform.position);
         StartCoroutine(ExtendLine());
     }
 
