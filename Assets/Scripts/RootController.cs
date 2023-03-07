@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+//TODO: Add a depth counter
+
 public class RootController : MonoBehaviour
 {
     public float speed = 2f;
