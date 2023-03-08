@@ -34,7 +34,14 @@ public class PlantManager : MonoBehaviour
         else
             Instance = this;
     }
-
+    public void PauseGame()
+    {
+        _gameActive = false;
+    }
+    public void PlayGame()
+    {
+        _decay = StartCoroutine(DecayValues());
+    }
     public void StartGame()
     {
         _decay = StartCoroutine(DecayValues());
