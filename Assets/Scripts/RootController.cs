@@ -69,14 +69,12 @@ public class RootController : MonoBehaviour
         if (_click && Time.time > (_clickTime + clickDelta))
         {
             _click = false;
-            UpdateSound();  
+            //UpdateSound();  
+        }
+
     }
-        
-    }
-    private void start()
-        {
-       
-}
+    
+
     private void FixedUpdate()
     {
         if (_direction.magnitude > 0)
@@ -113,7 +111,8 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
-            AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
+            // AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
+            playerMovement.start();
         }
         else
         {
@@ -149,6 +148,7 @@ public class RootController : MonoBehaviour
 
     private void OnMouseUp()
     {
+        playerMovement.stop(STOP_MODE.ALLOWFADEOUT);
         FinishRoot();
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0;
