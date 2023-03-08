@@ -66,7 +66,7 @@ MonoBehaviour:
   Path: Build/Desktop/UI_Sounds.bank
   Name: Desktop/UI_Sounds
   StudioPath: bank:/UI_Sounds
-  lastModified: 638139040522514345
+  lastModified: 638139057448729687
   FileSizes: []
   Exists: 1
 --- !u!114 &-6002519795775799113
@@ -187,7 +187,7 @@ MonoBehaviour:
   - {fileID: 6020920862755877311}
   StringsBanks:
   - {fileID: 625025166186145358}
-  cacheTime: 638139040522514345
+  cacheTime: 638139058444698414
   cacheVersion: 131601
 --- !u!114 &108591826287850408
 MonoBehaviour:
@@ -288,7 +288,7 @@ MonoBehaviour:
   Path: Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638139040521554422
+  lastModified: 638139057447592216
   FileSizes:
   - Name: 
     Value: 1610
@@ -308,7 +308,7 @@ MonoBehaviour:
   Path: Build/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 638139040522294844
+  lastModified: 638139057448530200
   FileSizes: []
   Exists: 1
 --- !u!114 &1771603788001450556
@@ -326,7 +326,7 @@ MonoBehaviour:
   Path: Build/Desktop/Collision.bank
   Name: Desktop/Collision
   StudioPath: bank:/Collision
-  lastModified: 638139040521265182
+  lastModified: 638139057447223204
   FileSizes: []
   Exists: 1
 --- !u!114 &1904839299570442760
@@ -344,7 +344,7 @@ MonoBehaviour:
   Path: Build/Desktop/Movement.bank
   Name: Desktop/Movement
   StudioPath: bank:/Movement
-  lastModified: 638139040522005594
+  lastModified: 638139058444698414
   FileSizes: []
   Exists: 1
 --- !u!114 &2122713660837775017
@@ -444,7 +444,7 @@ MonoBehaviour:
   Path: Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638139040521534472
+  lastModified: 638139057447562026
   FileSizes: []
   Exists: 1
 --- !u!114 &6479257242326899470
