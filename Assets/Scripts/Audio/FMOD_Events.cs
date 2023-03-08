@@ -53,14 +53,6 @@ public class FMOD_Events : MonoBehaviour
 
     [field: SerializeField] public EventReference DrainPocket { get; private set; }
 
-    [field: Header("Acorn")]
-
-    [field: SerializeField] public EventReference acornDropped { get; private set; }
-
-    [field: Header("AcornGroundHit")]
-
-    [field: SerializeField] public EventReference acornGroundHit { get; private set; }
-
     [field: Header("Ambience")]
 
     [field: SerializeField] public EventReference ambience { get; private set; }

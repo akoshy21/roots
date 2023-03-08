@@ -33,7 +33,7 @@ public class MenuUI : MonoBehaviour
           
             acorn.SetConditionalActive(true);
            
-            AudioManager.instance.PlayOneShot(FMOD_Events.instance.acornDropped, this.transform.position);
+           
             Music = AudioManager.instance.CreateInstance(FMOD_Events.instance.Music);
         }
     }

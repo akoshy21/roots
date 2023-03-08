@@ -482,10 +482,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
-  sourceProjectPath: ../../roots/Roots_game.fspro
-  sourceBankPath: ../../roots/Build
+  HasSourceProject: 0
+  HasPlatforms: 0
+  sourceProjectPath: ../roots/Roots_game.fspro
+  sourceBankPath: Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -507,11 +507,12 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks:
-  - Movement
-  - Music
-  - UI_Sounds
+  - Desktop/Collision
+  - Desktop/Movement
+  - Desktop/Music
+  - Desktop/UI_Sounds
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
