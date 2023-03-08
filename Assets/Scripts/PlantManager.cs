@@ -26,7 +26,8 @@ public class PlantManager : MonoBehaviour
     private Coroutine _decay;
 
     private bool _gameActive = true;
-    
+    public static bool GAME_ACTIVE => Instance._gameActive;
+
     public void Awake()
     {
         if (Instance != null)
@@ -34,14 +35,7 @@ public class PlantManager : MonoBehaviour
         else
             Instance = this;
     }
-    public void PauseGame()
-    {
-        _gameActive = false;
-    }
-    public void PlayGame()
-    {
-        _decay = StartCoroutine(DecayValues());
-    }
+
     public void StartGame()
     {
         _decay = StartCoroutine(DecayValues());
@@ -91,9 +85,7 @@ public class PlantManager : MonoBehaviour
             Debug.Log("Adding Water...");
             waterCurrent += waterAdded;
             waterBar.SetFill(waterCurrent / waterMax);
-            
         }
-        AudioManager.instance.PlayOneShot(FMOD_Events.instance.DrainPocket, this.transform.position);
     }
 
     public void AddNutrient(float nutrientAdded)
@@ -109,6 +101,17 @@ public class PlantManager : MonoBehaviour
     {
         _gameActive = false;
         cam.ScrollToTop();
+    }
+
+    public void PauseGame()
+    {
+        _gameActive = false;
+    }
+    
+    
+    public void PlayGame()
+    {
+        _gameActive = true;
     }
 
     public void DeadRoot()

@@ -46,7 +46,7 @@ public class MenuUI : MonoBehaviour
     }
 
 
-public void quitGame()
+    public void quitGame()
     {
         Application.Quit();
        

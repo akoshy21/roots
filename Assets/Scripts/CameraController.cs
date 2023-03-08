@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour
 {
     private float _lowestY = 1;
+    public float camStep = 0.4f;
     public float camSpeed = 1;
 
     public float topY = 3.18f;
-    
+
     private Vector3 _endPos;
     private Vector3 _origPos;
 
@@ -18,18 +19,15 @@ public class CameraController : MonoBehaviour
 
     private bool _gameEnd = false;
 
-    public GameObject menuUI, scraper;
+    public GameObject menuUI; 
 
-    public GameObject smallTree, bigTree,acorn;
-
-    // TODO: SCROLL UP TO THE TOP OF THE DIRT ON GAME-OVER SO YOU CAN SEE YOUR ROOT STRUCTURE (ALMOST AN ARTISTIC END)
-    // TODO: OPENING CUTSCENE FROM ACORN
+    public GameObject smallTree, bigTree, acorn;
 
     public void CheckY(Vector3 pos)
     {
         // Debug.Log("check y " + _lowestY + pos.y);
 
-        if (pos.y < _lowestY)
+        if (pos.y < _lowestY && PlantManager.GAME_ACTIVE)
         {
             _lowestY = pos.y;
             _origPos = transform.position;
@@ -38,38 +36,39 @@ public class CameraController : MonoBehaviour
 
             ItemSpawner.Instance.MoveDown();
 
-            if (_lowestY < -15)
+            if (_lowestY < -30)
             {
                 bigTree.SetConditionalActive(true);
                 smallTree.SetConditionalActive(false);
                 acorn.SetConditionalActive(false);
             }
-            else if(_lowestY < -3)
+            else if (_lowestY < -10)
             {
                 smallTree.SetConditionalActive(true);
                 acorn.SetConditionalActive(false);
             }
-            
-            if(_lowestY < -3.8)
-                scraper.SetConditionalActive(true);
+
         }
     }
 
     public void Update()
     {
-        _step += Time.deltaTime * camSpeed;
+        _step += Time.deltaTime * camStep;
         if (_step > 1)
         {
             _step = 1;
-            
-            if(_gameEnd)
+
+            if (_gameEnd)
                 menuUI.SetConditionalActive(true);
         }
 
         if (Vector3.Distance(_origPos, _endPos) > 0.25f)
         {
-            transform.position = Vector3.Lerp(_origPos, _endPos, _step);
-        }  
+            if (PlantManager.Instance)
+                transform.position = Vector3.Lerp(_origPos, _endPos, _step);
+            else
+                transform.position = Vector3.MoveTowards(transform.position, _endPos, camSpeed);
+        }
     }
 
     public void ScrollToTop()
