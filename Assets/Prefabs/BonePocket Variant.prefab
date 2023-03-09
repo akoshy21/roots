@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5944152879070688277, guid: 7cc87f8486736cd4f93cbe940f021470, type: 3}
       propertyPath: m_Name
-      value: BonePocket
+      value: BonePocket Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5944152879070688362, guid: 7cc87f8486736cd4f93cbe940f021470, type: 3}
       propertyPath: grayedOut
@@ -63,5 +63,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8751116285498750487, guid: 7ef68733c90e8434ca4d13cd7b493794, type: 3}
+    - target: {fileID: 5944152879395810856, guid: 7cc87f8486736cd4f93cbe940f021470, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944152879395810856, guid: 7cc87f8486736cd4f93cbe940f021470, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc87f8486736cd4f93cbe940f021470, type: 3}

@@ -59,7 +59,7 @@ public class CameraController : MonoBehaviour
             int cm = (int) (Mathf.Abs(_lowestY) + 1);
 
 
-            meterText.text = cm.ToString();
+            meterText.text = cm.ToString() + "m";
         }
     }
 
