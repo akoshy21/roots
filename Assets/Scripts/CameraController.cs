@@ -33,13 +33,13 @@ public class CameraController : MonoBehaviour
 
     public void CheckY(Vector3 pos)
     {
-        // Debug.Log("check y " + _lowestY + pos.y);
+        Debug.Log("check y " + _lowestY + pos.y);
 
         if (pos.y < _lowestY && PlantManager.GAME_ACTIVE)
         {
             _lowestY = pos.y;
             _origPos = transform.position;
-            _endPos = new Vector3(_origPos.x, _lowestY, -10);
+            _endPos = new Vector3(_origPos.x, _lowestY - 2f, -10);
             _step = 0;
 
             ItemSpawner.Instance.MoveDown();
@@ -85,13 +85,11 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Game end move");
                 transform.position = Vector3.MoveTowards(transform.position, _endPos, camSpeed);
             }
         }
         else if (_gameEnd == false && checkForDeath && PlantManager.GAME_ACTIVE)
         {
-            Debug.Log("checkDeath");
             checkForDeath = false;
             PlantManager.Instance.CheckForDeath();
         }
