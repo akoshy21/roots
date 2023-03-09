@@ -264,7 +264,7 @@ public class RootController : MonoBehaviour
         active = false;
         rb.simulated = false;
         sr.color = new Color(152,255 , 150, 0);
-        
+
     }
     //fmodaudio
     private void UpdateSound()

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RootTip : MonoBehaviour
 {
+    public SpriteRenderer sr;
+    public Color onDeathColor;
  
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,7 +25,7 @@ public class RootTip : MonoBehaviour
             this.GetComponentInParent<RootController>().DestroyRoot();
             rock.HitRock();
             AudioManager.instance.PlayOneShot(FMOD_Events.instance. RootHit, this.transform.position);
-
+            sr.color = onDeathColor;
         }
     }
     

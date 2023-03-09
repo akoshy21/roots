@@ -2873,6 +2873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c5d762021e4c91be4b1918bfa7883c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 840813036}
+  onDeathColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &846682837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3010901579305037597, guid: 01ce03d1301272840aa2113707cdd0dd, type: 3}

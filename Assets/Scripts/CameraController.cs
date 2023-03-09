@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
@@ -21,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     private bool _gameEnd = false;
 
-    public GameObject menuUI; 
+    public GameObject menuUI;
 
     public GameObject smallTree, bigTree, acorn;
 
@@ -54,8 +56,8 @@ public class CameraController : MonoBehaviour
                 acorn.SetConditionalActive(false);
             }
 
-            int cm = (int)(Mathf.Abs(_lowestY) + 1);
-            
+            int cm = (int) (Mathf.Abs(_lowestY) + 1);
+
 
             meterText.text = cm.ToString();
         }
@@ -63,26 +65,42 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        _step += Time.deltaTime * camStep;
-        if (_step > 1)
+        if (_gameEnd && Vector3.Distance(transform.position,_endPos) < 0.25f)
         {
+            Debug.Log("end game");
             _step = 1;
-
-            if (_gameEnd)
-                menuUI.SetConditionalActive(true);
+            StartCoroutine(DelayMenu());
         }
-
-        if (Vector3.Distance(_origPos, _endPos) > 0.25f)
+        else if(Vector3.Distance(_origPos, _endPos) > 0.25f)
         {
             if (_gameEnd == false)
+            {
+                _step += Time.deltaTime * camStep;
+                if (_step > 1)
+                {
+                    _step = 1;
+                }
+                
                 transform.position = Vector3.Lerp(_origPos, _endPos, _step);
+            }
             else
+            {
+                Debug.Log("Game end move");
                 transform.position = Vector3.MoveTowards(transform.position, _endPos, camSpeed);
-        } else if (checkForDeath & PlantManager.GAME_ACTIVE)
+            }
+        }
+        else if (_gameEnd == false && checkForDeath && PlantManager.GAME_ACTIVE)
         {
+            Debug.Log("checkDeath");
             checkForDeath = false;
             PlantManager.Instance.CheckForDeath();
         }
+    }
+
+    IEnumerator DelayMenu()
+    {
+        yield return new WaitForSeconds(0.25f);
+        menuUI.SetConditionalActive(true);
     }
 
     public void ScrollToTop()

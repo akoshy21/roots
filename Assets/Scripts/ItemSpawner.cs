@@ -165,10 +165,10 @@ public class ItemSpawner : MonoBehaviour
         if (hit)
         {
             _iterations += 1;
-            if (_iterations < 5)
+            if (_iterations < 10)
                 return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
             else
-                return rand += Vector3.one;
+                return rand += Vector3.one * 2;
         }
 
         return rand;
