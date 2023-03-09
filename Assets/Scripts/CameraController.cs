@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +24,10 @@ public class CameraController : MonoBehaviour
     public GameObject menuUI; 
 
     public GameObject smallTree, bigTree, acorn;
+
+    public TMP_Text meterText;
+
+    private bool checkForDeath = true;
 
     public void CheckY(Vector3 pos)
     {
@@ -48,6 +54,10 @@ public class CameraController : MonoBehaviour
                 acorn.SetConditionalActive(false);
             }
 
+            int cm = (int)(Mathf.Abs(_lowestY) + 1);
+            
+
+            meterText.text = cm.ToString();
         }
     }
 
@@ -64,10 +74,14 @@ public class CameraController : MonoBehaviour
 
         if (Vector3.Distance(_origPos, _endPos) > 0.25f)
         {
-            if (PlantManager.Instance)
+            if (_gameEnd == false)
                 transform.position = Vector3.Lerp(_origPos, _endPos, _step);
             else
                 transform.position = Vector3.MoveTowards(transform.position, _endPos, camSpeed);
+        } else if (checkForDeath & PlantManager.GAME_ACTIVE)
+        {
+            checkForDeath = false;
+            PlantManager.Instance.CheckForDeath();
         }
     }
 

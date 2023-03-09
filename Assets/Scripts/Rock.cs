@@ -4,7 +4,7 @@ public class Rock: MonoBehaviour
 {
     public void HitRock()
     {
-        PlantManager.Instance.DeadRoot();
+        PlantManager.Instance.CheckForDeath();
         AudioManager.instance.PlayOneShot(FMOD_Events.instance.RockHit, this.transform.position);
     }
 }

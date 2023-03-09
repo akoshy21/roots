@@ -25,7 +25,7 @@ public class PlantManager : MonoBehaviour
 
     private Coroutine _decay;
 
-    private bool _gameActive = true;
+    private bool _gameActive = false;
     public static bool GAME_ACTIVE => Instance._gameActive;
 
     public void Awake()
@@ -38,6 +38,7 @@ public class PlantManager : MonoBehaviour
 
     public void StartGame()
     {
+        _gameActive = true;
         _decay = StartCoroutine(DecayValues());
     }
 
@@ -114,17 +115,17 @@ public class PlantManager : MonoBehaviour
         _gameActive = true;
     }
 
-    public void DeadRoot()
+    public void AddRootController(RootController rc)
+    {
+        _activeRoots.Add(rc);
+    }
+
+    public void CheckForDeath()
     {
         if (!HasActiveRoots())
         {
             LoseGame();
         }
-    }
-
-    public void AddRootController(RootController rc)
-    {
-        _activeRoots.Add(rc);
     }
 }
 
