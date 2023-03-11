@@ -69,6 +69,7 @@ public class RootController : MonoBehaviour
         {
             _click = false;
             //UpdateSound();  
+            playerMovement = AudioManager.instance.CreateInstance(FMOD_Events.instance.playerMovement);
         }
 
     }
@@ -117,11 +118,7 @@ public class RootController : MonoBehaviour
             _click = false;
             _original = newPosRight;
             AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
-            
-<<<<<<< Updated upstream:Assets/Scripts/Root/RootController.cs
-=======
-         
->>>>>>> Stashed changes:Assets/Scripts/RootController.cs
+           
         }
         else
         {
@@ -164,6 +161,7 @@ public class RootController : MonoBehaviour
                 Vector3 dir = Vector3.Normalize(position - _original);
                 dir.y = Mathf.Clamp(dir.y, -1, -0.05f);
                 _direction = dir;
+          
                 //  transform.position = _original;
             }
         }

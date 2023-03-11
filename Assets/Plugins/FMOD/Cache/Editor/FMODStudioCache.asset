@@ -1,6 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8425219705414651308
+--- !u!114 &-8766653499847819230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Music.bank
+  Name: Desktop/Music
+  StudioPath: bank:/Music
+  lastModified: 638139057448530200
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8574237118209406596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Movement.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Movement.bank
+  Name: Desktop/Movement
+  StudioPath: bank:/Movement
+  lastModified: 638139058444698414
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8419959034872575918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/INTERACTION/Click
+  m_EditorClassIdentifier: 
+  Path: event:/INTERACTION/Click
+  Guid:
+    Data1: -716879474
+    Data2: 1265718334
+    Data3: -1242728294
+    Data4: 224523638
+  Banks:
+  - {fileID: -8766653499847819230}
+  - {fileID: 3740011843194452602}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 92
+--- !u!114 &-7453956655057271193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/INTERACTION/Falling
+  m_EditorClassIdentifier: 
+  Path: event:/INTERACTION/Falling
+  Guid:
+    Data1: 126992491
+    Data2: 1234745305
+    Data3: -1214352748
+    Data4: -194268437
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1460
+--- !u!114 &-6630574319410545974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,7 +110,7 @@ MonoBehaviour:
     Data3: -943978568
     Data4: 1221051780
   Banks:
-  - {fileID: 1904839299570442760}
+  - {fileID: -8574237118209406596}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -27,7 +118,90 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 7500
---- !u!114 &-7914863464113813905
+--- !u!114 &-6328928356257079304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Dirt 2_turn
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Dirt 2_turn
+  Guid:
+    Data1: 695622670
+    Data2: 1267737723
+    Data3: 1996649147
+    Data4: -200730243
+  Banks:
+  - {fileID: 6697972775247209158}
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1080
+--- !u!114 &-5246961807356113681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Dirt 1-turn
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Dirt 1-turn
+  Guid:
+    Data1: -332693173
+    Data2: 1276683898
+    Data3: -114254969
+    Data4: -1505535936
+  Banks:
+  - {fileID: 6697972775247209158}
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1043
+--- !u!114 &-4989335847635570577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Dirt 4_turn
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Dirt 4_turn
+  Guid:
+    Data1: 726971979
+    Data2: 1330857810
+    Data3: 676079294
+    Data4: 263100991
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 402
+--- !u!114 &-3236882198703668658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,108 +225,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
-<<<<<<< Updated upstream
-=======
---- !u!114 &-7787424169988318224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/UI_Sounds.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/UI_Sounds.bank
-  Name: Desktop/UI_Sounds
-  StudioPath: bank:/UI_Sounds
-  lastModified: 638139057448729687
-  FileSizes: []
-  Exists: 1
->>>>>>> Stashed changes
---- !u!114 &-6002519795775799113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Root/Root_break
-  m_EditorClassIdentifier: 
-  Path: event:/Root/Root_break
-  Guid:
-    Data1: 1933599704
-    Data2: 1157192262
-    Data3: 588954770
-    Data4: -1012666522
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2500
---- !u!114 &-5637966292392779680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Dirt 5_turn
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Dirt 5_turn
-  Guid:
-    Data1: 90901754
-    Data2: 1222809485
-    Data3: -1462436441
-    Data4: -710081076
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 906
---- !u!114 &-4604298220285217754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Dirt 4_turn
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Dirt 4_turn
-  Guid:
-    Data1: 726971979
-    Data2: 1330857810
-    Data3: 676079294
-    Data4: 263100991
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 402
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,340 +238,33 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 625025166186145358}
-  - {fileID: 1771603788001450556}
-  - {fileID: 6020920862755877311}
-  - {fileID: 1904839299570442760}
-  - {fileID: 682813712336692005}
+  - {fileID: 7384877592417361193}
+  - {fileID: 2886665709939672134}
+  - {fileID: 6697972775247209158}
+  - {fileID: -8574237118209406596}
+  - {fileID: -8766653499847819230}
+  - {fileID: 3740011843194452602}
   EditorEvents:
-  - {fileID: 108591826287850408}
-  - {fileID: 5168830041168433135}
-  - {fileID: 610444071290379509}
-  - {fileID: -4604298220285217754}
-  - {fileID: 4297026091483584909}
-  - {fileID: 2122713660837775017}
-  - {fileID: -5637966292392779680}
-  - {fileID: 6479257242326899470}
-  - {fileID: 8809001557108263169}
-  - {fileID: -6002519795775799113}
-  - {fileID: -8425219705414651308}
-  - {fileID: 170367286597082506}
+  - {fileID: -6328928356257079304}
+  - {fileID: 8670651314091932881}
+  - {fileID: -5246961807356113681}
+  - {fileID: -4989335847635570577}
+  - {fileID: 5790850785267912732}
+  - {fileID: -7453956655057271193}
+  - {fileID: 5123450361656708749}
+  - {fileID: -6630574319410545974}
+  - {fileID: 2168548591482941439}
+  - {fileID: 9177026055511405211}
+  - {fileID: 2101556037797314039}
+  - {fileID: -8419959034872575918}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 6020920862755877311}
+  - {fileID: 6697972775247209158}
   StringsBanks:
-  - {fileID: 625025166186145358}
-<<<<<<< Updated upstream
-  cacheTime: 638138867954706932
-=======
+  - {fileID: 7384877592417361193}
   cacheTime: 638139058444698414
->>>>>>> Stashed changes
   cacheVersion: 131601
---- !u!114 &108591826287850408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Dirt 2_turn
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Dirt 2_turn
-  Guid:
-    Data1: 695622670
-    Data2: 1267737723
-    Data3: 1996649147
-    Data4: -200730243
-  Banks:
-  - {fileID: 6020920862755877311}
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1080
---- !u!114 &170367286597082506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/INTERACTION/Click
-  m_EditorClassIdentifier: 
-  Path: event:/INTERACTION/Click
-  Guid:
-    Data1: -716879474
-    Data2: 1265718334
-    Data3: -1242728294
-    Data4: 224523638
-  Banks:
-  - {fileID: 682813712336692005}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 92
---- !u!114 &610444071290379509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Dirt 1-turn
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Dirt 1-turn
-  Guid:
-    Data1: -332693173
-    Data2: 1276683898
-    Data3: -114254969
-    Data4: -1505535936
-  Banks:
-  - {fileID: 6020920862755877311}
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1043
---- !u!114 &625025166186145358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-<<<<<<< Updated upstream
-  lastModified: 638138867954607051
-=======
-  lastModified: 638139057447592216
->>>>>>> Stashed changes
-  FileSizes:
-  - Name: 
-    Value: 1610
-  Exists: 1
---- !u!114 &682813712336692005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Music.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/Music.bank
-  Name: Desktop/Music
-  StudioPath: bank:/Music
-<<<<<<< Updated upstream
-  lastModified: 638137830205061796
-=======
-  lastModified: 638139057448530200
->>>>>>> Stashed changes
-  FileSizes: []
-  Exists: 1
---- !u!114 &1771603788001450556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Collision.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/Collision.bank
-  Name: Desktop/Collision
-  StudioPath: bank:/Collision
-<<<<<<< Updated upstream
-  lastModified: 638138867954607051
-=======
-  lastModified: 638139057447223204
->>>>>>> Stashed changes
-  FileSizes: []
-  Exists: 1
---- !u!114 &1904839299570442760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Movement.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/Movement.bank
-  Name: Desktop/Movement
-  StudioPath: bank:/Movement
-<<<<<<< Updated upstream
-  lastModified: 638138867954706932
-=======
-  lastModified: 638139058444698414
->>>>>>> Stashed changes
-  FileSizes: []
-  Exists: 1
---- !u!114 &2122713660837775017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Squishy_+_Dirt_digging
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Squishy_+_Dirt_digging
-  Guid:
-    Data1: 1688482992
-    Data2: 1239650542
-    Data3: 538298763
-    Data4: -457474006
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 4200
---- !u!114 &4297026091483584909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dirt_movement/Dirt 3_turn
-  m_EditorClassIdentifier: 
-  Path: event:/Dirt_movement/Dirt 3_turn
-  Guid:
-    Data1: -1559834787
-    Data2: 1333462434
-    Data3: -280632703
-    Data4: -126708145
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 880
---- !u!114 &5168830041168433135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Drone_intensity
-  m_EditorClassIdentifier: 
-  Path: event:/Drone_intensity
-  Guid:
-    Data1: 735791687
-    Data2: 1192453866
-    Data3: -979157578
-    Data4: -397097756
-  Banks:
-  - {fileID: 6020920862755877311}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -7914863464113813905}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 10000
---- !u!114 &6020920862755877311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Build/Desktop/Master.bank
-  Name: Desktop/Master
-  StudioPath: bank:/Master
-<<<<<<< Updated upstream
-  lastModified: 638111843290058972
-=======
-  lastModified: 638139057447562026
->>>>>>> Stashed changes
-  FileSizes: []
-  Exists: 1
---- !u!114 &6479257242326899470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/INTERACTION/Falling
-  m_EditorClassIdentifier: 
-  Path: event:/INTERACTION/Falling
-  Guid:
-    Data1: 126992491
-    Data2: 1234745305
-    Data3: -1214352748
-    Data4: -194268437
-  Banks:
-  - {fileID: 1904839299570442760}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1460
---- !u!114 &8809001557108263169
+--- !u!114 &2101556037797314039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -518,7 +283,7 @@ MonoBehaviour:
     Data3: -558342005
     Data4: 248882548
   Banks:
-  - {fileID: 682813712336692005}
+  - {fileID: -8766653499847819230}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -526,3 +291,213 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 134000
+--- !u!114 &2168548591482941439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Root/Root_break
+  m_EditorClassIdentifier: 
+  Path: event:/Root/Root_break
+  Guid:
+    Data1: 1933599704
+    Data2: 1157192262
+    Data3: 588954770
+    Data4: -1012666522
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2500
+--- !u!114 &2886665709939672134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Collision.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Collision.bank
+  Name: Desktop/Collision
+  StudioPath: bank:/Collision
+  lastModified: 638139057447223204
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3740011843194452602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/UI_Sounds.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/UI_Sounds.bank
+  Name: Desktop/UI_Sounds
+  StudioPath: bank:/UI_Sounds
+  lastModified: 638139057448729687
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5123450361656708749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Squishy_+_Dirt_digging
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Squishy_+_Dirt_digging
+  Guid:
+    Data1: 1688482992
+    Data2: 1239650542
+    Data3: 538298763
+    Data4: -457474006
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4200
+--- !u!114 &5790850785267912732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Dirt 3_turn
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Dirt 3_turn
+  Guid:
+    Data1: -1559834787
+    Data2: 1333462434
+    Data3: -280632703
+    Data4: -126708145
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 880
+--- !u!114 &6697972775247209158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638139057447562026
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7384877592417361193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Master.strings.bank
+  Name: Desktop/Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638139057447592216
+  FileSizes:
+  - Name: 
+    Value: 1610
+  Exists: 1
+--- !u!114 &8670651314091932881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drone_intensity
+  m_EditorClassIdentifier: 
+  Path: event:/Drone_intensity
+  Guid:
+    Data1: 735791687
+    Data2: 1192453866
+    Data3: -979157578
+    Data4: -397097756
+  Banks:
+  - {fileID: 6697972775247209158}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3236882198703668658}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
+--- !u!114 &9177026055511405211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dirt_movement/Dirt 5_turn
+  m_EditorClassIdentifier: 
+  Path: event:/Dirt_movement/Dirt 5_turn
+  Guid:
+    Data1: 90901754
+    Data2: 1222809485
+    Data3: -1462436441
+    Data4: -710081076
+  Banks:
+  - {fileID: -8574237118209406596}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 906
