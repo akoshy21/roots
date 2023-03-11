@@ -121,7 +121,7 @@
 	</object>
 	<object class="SingleSound" id="{0ee83cb4-9a99-454f-b63d-e34ff3695121}">
 		<property name="length">
-			<value>6.1000000000000005</value>
+			<value>4.2000000000000002</value>
 		</property>
 		<property name="voiceStealing">
 			<value>3</value>
@@ -197,7 +197,7 @@
 			<value>0.45000000000000001</value>
 		</property>
 		<property name="length">
-			<value>5.3500000000000005</value>
+			<value>2</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{d13dec26-d5de-485d-92a0-df1b8205e34d}</destination>
@@ -290,7 +290,7 @@
 	</object>
 	<object class="AutomationPoint" id="{ef063a10-8ddf-4781-a96c-7c975bca81cc}">
 		<property name="position">
-			<value>5.9500000000000002</value>
+			<value>4.0499999999999998</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -301,7 +301,7 @@
 	</object>
 	<object class="AutomationPoint" id="{597d4185-35b1-4e43-8e92-8ffc0e7fb2a7}">
 		<property name="position">
-			<value>6.1000000000000005</value>
+			<value>4.2000000000000002</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -310,19 +310,16 @@
 	<object class="MixerBusFader" id="{0dc35364-9555-4d94-9c8d-0b97ca35ee78}" />
 	<object class="ThreeEQEffect" id="{866f5ab5-9a32-4f7c-8bd7-d2c4526a22b6}">
 		<property name="lowGain">
-			<value>-25.5</value>
+			<value>-29.5</value>
 		</property>
 		<property name="midGain">
-			<value>-28.5</value>
+			<value>-30</value>
 		</property>
 		<property name="highGain">
-			<value>-16.5</value>
-		</property>
-		<property name="lowCrossover">
-			<value>1150</value>
+			<value>-24.5</value>
 		</property>
 		<property name="highCrossover">
-			<value>3600</value>
+			<value>6500</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{fe668193-2a3e-44f7-bf8b-55bc0f8ec286}" />

@@ -45,7 +45,6 @@ public class Pocket : MonoBehaviour
                 case PocketType.Water:
                     AudioManager.instance.PlayOneShot(FMOD_Events.instance.DrainPocket, this.transform.position);
                     if (waterDrain == null) waterDrain = StartCoroutine(DrainWaterOverTime());
-                    AudioManager.instance.PlayOneShot(FMOD_Events.instance.DrainPocket, this.transform.position);
                     break;
                 case PocketType.Nutrient:
                     // TODO: play sound based on type of item.
