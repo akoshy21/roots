@@ -116,15 +116,24 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
-            // AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
+            AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
             
+<<<<<<< Updated upstream:Assets/Scripts/Root/RootController.cs
+=======
+         
+>>>>>>> Stashed changes:Assets/Scripts/RootController.cs
         }
         else
         {
             _click = true;
             _clickTime = Time.time;
         }
-        
+        PLAYBACK_STATE playbackState;
+        playerMovement.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            playerMovement.start();
+        }
     }
 
     void OnMouseDrag()
