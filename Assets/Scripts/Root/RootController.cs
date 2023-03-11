@@ -117,13 +117,9 @@ public class RootController : MonoBehaviour
 
             _click = false;
             _original = newPosRight;
-<<<<<<< HEAD
+
             AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
-           
-=======
-            // AudioManager.instance.PlayOneShot(FMOD_Events.instance.RootBreak, this.transform.position);
-            
->>>>>>> parent of 4fbd0ec (scriptcleanup)
+
         }
         else
         {

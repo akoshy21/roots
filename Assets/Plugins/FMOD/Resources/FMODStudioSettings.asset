@@ -512,6 +512,7 @@ MonoBehaviour:
   - Desktop/Collision
   - Desktop/Movement
   - Desktop/Music
+  - Desktop/UI_Sounds
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
