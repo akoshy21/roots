@@ -61,8 +61,8 @@
 		<property name="maxVoices">
 			<value>1</value>
 		</property>
-		<property name="triggerCooldown">
-			<value>60000</value>
+		<property name="priority">
+			<value>4</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{0c3cc385-1492-4b74-ab86-3e2f2125456e}" />
@@ -256,14 +256,17 @@
 	<object class="MixerBusPanner" id="{3f485394-93cb-4ac3-b914-442331097bca}" />
 	<object class="MixerBusFader" id="{61594af4-d86c-479a-bbb7-c0fdda6ef221}" />
 	<object class="ThreeEQEffect" id="{c794de0c-c123-4d20-8ded-82ac6480d56b}">
-		<property name="lowGain">
-			<value>1.5</value>
-		</property>
 		<property name="midGain">
-			<value>-4</value>
+			<value>-8.5</value>
 		</property>
 		<property name="highGain">
-			<value>-5</value>
+			<value>-7.5</value>
+		</property>
+		<property name="lowCrossover">
+			<value>2800</value>
+		</property>
+		<property name="highCrossover">
+			<value>680</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{2bd9fab1-d198-4ce8-9538-3bec144ff295}</destination>
@@ -310,13 +313,13 @@
 	<object class="MixerBusFader" id="{0dc35364-9555-4d94-9c8d-0b97ca35ee78}" />
 	<object class="ThreeEQEffect" id="{866f5ab5-9a32-4f7c-8bd7-d2c4526a22b6}">
 		<property name="lowGain">
-			<value>-29.5</value>
+			<value>-38</value>
 		</property>
 		<property name="midGain">
-			<value>-30</value>
+			<value>-28.5</value>
 		</property>
 		<property name="highGain">
-			<value>-24.5</value>
+			<value>-22.5</value>
 		</property>
 		<property name="highCrossover">
 			<value>6500</value>
@@ -325,7 +328,7 @@
 	<object class="MixerBusFader" id="{fe668193-2a3e-44f7-bf8b-55bc0f8ec286}" />
 	<object class="SFXReverbEffect" id="{efe9bf73-1f6b-4c74-ab3f-fbcc20161e4e}">
 		<property name="decayTime">
-			<value>150</value>
+			<value>650</value>
 		</property>
 		<property name="wetLevel">
 			<value>-31</value>
