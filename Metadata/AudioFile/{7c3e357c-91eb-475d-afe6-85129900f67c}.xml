@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{7c3e357c-91eb-475d-afe6-85129900f67c}">
+		<property name="assetPath">
+			<value>Cut_scene/Wind_Howl.WAV</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.855759637188209</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b38c1d4-bd46-4401-abf3-f9387e7739da}</destination>
+		</relationship>
+	</object>
+</objects>

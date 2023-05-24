@@ -509,9 +509,11 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Ambience
   - Collision
   - Movement
   - Music
+  - Objects
   - UI_Sounds
   BanksToLoad: []
   LiveUpdatePort: 9264

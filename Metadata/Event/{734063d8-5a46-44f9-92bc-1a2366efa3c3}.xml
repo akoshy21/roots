@@ -27,7 +27,6 @@
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{4776fe95-763f-4cc3-82a9-5438d82b4524}</destination>
-			<destination>{c9c395b4-5be0-480f-8b3b-ab55cdf76686}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{9d989ee5-34f9-4c27-bb2b-3e967694200d}</destination>
@@ -67,11 +66,6 @@
 			<destination>{d9061fbb-0cf7-42f5-a01e-a638b5b332fc}</destination>
 		</relationship>
 	</object>
-	<object class="GroupTrack" id="{c9c395b4-5be0-480f-8b3b-ab55cdf76686}">
-		<relationship name="mixerGroup">
-			<destination>{c387b6f0-6a29-4234-ad86-3ef69189c8a3}</destination>
-		</relationship>
-	</object>
 	<object class="Timeline" id="{9d989ee5-34f9-4c27-bb2b-3e967694200d}">
 		<relationship name="modules">
 			<destination>{32a70f11-b30e-43be-850f-d654f22cf48d}</destination>
@@ -103,7 +97,6 @@
 			<destination>{1c5cd3c2-16ca-4ad8-b431-43aaf3544e4a}</destination>
 		</relationship>
 		<relationship name="sounds">
-			<destination>{ad62f993-a7e3-4c0d-ba28-e54d0f4e18cb}</destination>
 			<destination>{f403ba81-2ae3-472e-a1db-2ecfdc11f78e}</destination>
 			<destination>{422346e8-0f63-43a6-a7f3-922c6a0c0966}</destination>
 			<destination>{9b4e96ee-f755-4c91-8d98-d83091a03216}</destination>
@@ -124,20 +117,6 @@
 		</relationship>
 		<relationship name="panner">
 			<destination>{f43ae008-3e79-4568-8b83-cffe9d1d2a4e}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{8968fe75-9ac1-4e16-a6cb-2550a6ed5dd6}</destination>
-		</relationship>
-	</object>
-	<object class="EventMixerGroup" id="{c387b6f0-6a29-4234-ad86-3ef69189c8a3}">
-		<property name="name">
-			<value>Audio 2</value>
-		</property>
-		<relationship name="effectChain">
-			<destination>{67e51e68-61dd-44c9-b66a-d168a4754bae}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{90f5eb6d-5c4b-425a-99cc-e5e9685a714b}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{8968fe75-9ac1-4e16-a6cb-2550a6ed5dd6}</destination>
@@ -167,14 +146,6 @@
 		<property name="amount">
 			<value>15</value>
 		</property>
-	</object>
-	<object class="SingleSound" id="{ad62f993-a7e3-4c0d-ba28-e54d0f4e18cb}">
-		<property name="volume">
-			<value>-1</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{37b60001-ff37-4b7f-aeb8-d092c1840a91}</destination>
-		</relationship>
 	</object>
 	<object class="SingleSound" id="{f403ba81-2ae3-472e-a1db-2ecfdc11f78e}">
 		<relationship name="audioFile">
@@ -213,27 +184,21 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f43ae008-3e79-4568-8b83-cffe9d1d2a4e}" />
-	<object class="MixerBusEffectChain" id="{67e51e68-61dd-44c9-b66a-d168a4754bae}">
-		<relationship name="effects">
-			<destination>{84168f9f-1c70-46ba-8857-0908d428197d}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{90f5eb6d-5c4b-425a-99cc-e5e9685a714b}" />
 	<object class="MixerBusFader" id="{7c549c59-27dd-413f-be88-8d09a4be35d3}" />
 	<object class="DistortionEffect" id="{f9ca514b-d9b7-40ee-ab45-f573dd6510b5}">
 		<property name="level">
-			<value>0.155000001</value>
+			<value>0.0899999961</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{77dbacf3-1280-49b9-8af6-e8d67e90d469}">
 		<property name="decayTime">
-			<value>1600</value>
+			<value>170</value>
 		</property>
 		<property name="wetLevel">
-			<value>-16.5</value>
+			<value>-28.5</value>
 		</property>
 		<property name="dryLevel">
-			<value>-7</value>
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{2ab956c4-11eb-4bf6-9b67-651df9dd0517}" />
@@ -245,7 +210,7 @@
 			<value>-3</value>
 		</property>
 		<property name="highGain">
-			<value>-5</value>
+			<value>-2</value>
 		</property>
 	</object>
 	<object class="DistortionEffect" id="{e0d3b2ab-5b63-4874-a169-18965e98564b}">
@@ -256,7 +221,6 @@
 			<destination>{afd0177b-c12d-47e0-b4a7-5af19a12ecaf}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusFader" id="{84168f9f-1c70-46ba-8857-0908d428197d}" />
 	<object class="RandomizerModulator" id="{afd0177b-c12d-47e0-b4a7-5af19a12ecaf}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>level</value>

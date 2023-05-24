@@ -510,13 +510,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3077c96a5fbe43cab6710398e7a1abe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camStep: 0.4
   camSpeed: 0.4
   topY: 3.18
   menuUI: {fileID: 0}
-  scraper: {fileID: 0}
   smallTree: {fileID: 0}
   bigTree: {fileID: 0}
   acorn: {fileID: 0}
+  meterText: {fileID: 0}
 --- !u!114 &116022810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +932,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: -1
@@ -2475,13 +2477,14 @@ MonoBehaviour:
       Data2: 1265718334
       Data3: -1242728294
       Data4: 224523638
-    Path: event:/INTERACTION/Click
+    Path: event:/Cut_scene/Click
   Event: 
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0
@@ -2708,6 +2711,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edc915e7bd401248a0bc7ceff2e0d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Click>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Health>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <HealthLow>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Water>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <WaterLow>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <BoneHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <LeafHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <AppleHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <RootHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <RootBreak>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <RockHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <DrainPocket>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <ambience>k__BackingField:
     Guid:
       Data1: 0
@@ -2723,6 +2810,13 @@ MonoBehaviour:
       Data4: 0
     Path: 
   <ObjectInteracted>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Music>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -3700,6 +3794,7 @@ MonoBehaviour:
   rootPrefab: {fileID: 1315560720}
   rootParent: {fileID: 2058190828}
   maxThickness: 0.01
+  minThickness: 0.5
   maxTime: 6
   roots: []
   active: 1
@@ -4061,6 +4156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c5d762021e4c91be4b1918bfa7883c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
+  onDeathColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &2035712349
 BoxCollider2D:
   m_ObjectHideFlags: 0

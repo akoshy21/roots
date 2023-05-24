@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{37b60001-ff37-4b7f-aeb8-d092c1840a91}">
 		<property name="assetPath">
-			<value>630590__vinni_r__bone-break_4.wav</value>
+			<value>UNsorted_Existing/630590__vinni_r__bone-break_4.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

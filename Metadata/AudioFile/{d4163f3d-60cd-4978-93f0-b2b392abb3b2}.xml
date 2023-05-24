@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{d4163f3d-60cd-4978-93f0-b2b392abb3b2}">
 		<property name="assetPath">
-			<value>471745__juanfg__break.wav</value>
+			<value>UNsorted_Existing/471745__juanfg__break.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

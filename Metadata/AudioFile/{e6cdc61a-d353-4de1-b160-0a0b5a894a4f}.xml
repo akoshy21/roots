@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{e6cdc61a-d353-4de1-b160-0a0b5a894a4f}">
 		<property name="assetPath">
-			<value>66777__kevinkace__crate-break-1.wav</value>
+			<value>UNsorted_Existing/66777__kevinkace__crate-break-1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

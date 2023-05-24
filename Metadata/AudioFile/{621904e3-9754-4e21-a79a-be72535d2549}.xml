@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{621904e3-9754-4e21-a79a-be72535d2549}">
 		<property name="assetPath">
-			<value>360662__inspectorj__falling-comedic-a.wav</value>
+			<value>UNsorted_Existing/360662__inspectorj__falling-comedic-a.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

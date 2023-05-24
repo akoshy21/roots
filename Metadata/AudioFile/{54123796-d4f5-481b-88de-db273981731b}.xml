@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{54123796-d4f5-481b-88de-db273981731b}">
 		<property name="assetPath">
-			<value>140477__jymdavis__mud-squish.wav</value>
+			<value>UNsorted_Existing/140477__jymdavis__mud-squish.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

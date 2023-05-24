@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{2bdb4a47-66ea-4713-b63d-a3c5e4c454e8}">
 		<property name="name">
-			<value>Drone_intensity</value>
+			<value>Drone_intensity_low_health</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1668eed8-7560-49de-925d-b9a3ed7e4599}</destination>
+			<destination>{d09615b3-8350-42e1-99e2-2c04778f5445}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{3183b3f9-36d7-40b0-b895-7fc76dcca5ed}</destination>
@@ -836,7 +836,7 @@
 	</object>
 	<object class="AutomationPoint" id="{7ce7bd56-0918-4245-86aa-5406346a0b00}">
 		<property name="position">
-			<value>8.9000000000000004</value>
+			<value>8.8000000000000007</value>
 		</property>
 		<property name="value">
 			<value>1</value>

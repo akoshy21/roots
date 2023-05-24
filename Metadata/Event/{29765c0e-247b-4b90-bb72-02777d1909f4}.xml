@@ -93,9 +93,6 @@
 		<property name="length">
 			<value>1.0799999999999996</value>
 		</property>
-		<property name="timelockedOffset">
-			<value>0.82000000000000006</value>
-		</property>
 		<relationship name="fadeInCurve">
 			<destination>{70c60863-1b8a-41ae-886f-99af7869b36f}</destination>
 		</relationship>
@@ -103,7 +100,7 @@
 			<destination>{d996f2c1-199d-46a8-9104-9eb7047abd2f}</destination>
 		</relationship>
 		<relationship name="audioFile">
-			<destination>{4d89c4df-aa20-4448-9b2c-646de96fda75}</destination>
+			<destination>{e81d1f71-ec41-4150-8fa0-3f12279e1d02}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{1d8b9dbe-55f0-427d-8cb0-ff125aeddd37}">

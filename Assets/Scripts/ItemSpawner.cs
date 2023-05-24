@@ -41,6 +41,8 @@ public class ItemSpawner : MonoBehaviour
     // FMOD audio
     private StudioEventEmitter emitter;
 
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -58,8 +60,8 @@ public class ItemSpawner : MonoBehaviour
     private void Start()
     {
         MoveDown();
-
-     
+       
+  
     }
 
     public void MoveDown()
@@ -169,6 +171,8 @@ public class ItemSpawner : MonoBehaviour
                 return GetAvailablePosition(coll, leftBound, rightBound, newDepth);
             else
                 return rand += Vector3.one * 2;
+
+       
         }
 
         return rand;
@@ -183,4 +187,6 @@ public class ItemSpawner : MonoBehaviour
 
         return 1 - Mathf.Pow(-2 * x + 2, 3) / 2;
     }
+
+   
 }

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{3e148046-c65c-4dc7-8b60-b8de74a5d50e}">
 		<property name="name">
-			<value>Game_play_music</value>
+			<value>Game_play_music_temp</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -110,6 +110,9 @@
 	<object class="MultiSound" id="{ac2be671-c06e-4bf4-881a-18c8ab0c978b}">
 		<property name="length">
 			<value>88</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{56174170-c025-4473-8dce-1df18b812282}</destination>

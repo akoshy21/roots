@@ -7,4 +7,6 @@ public class Rock: MonoBehaviour
         PlantManager.Instance.CheckForDeath();
         AudioManager.instance.PlayOneShot(FMOD_Events.instance.RockHit, this.transform.position);
     }
+
+    
 }

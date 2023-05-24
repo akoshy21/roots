@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{6b6ba779-a92d-45a5-b31b-cf83817eaecc}">
 		<property name="assetPath">
-			<value>538710__joshvanhansen__spaghetti-being-snapped-foodingr.wav</value>
+			<value>UNsorted_Existing/538710__joshvanhansen__spaghetti-being-snapped-foodingr.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48.0999985</value>

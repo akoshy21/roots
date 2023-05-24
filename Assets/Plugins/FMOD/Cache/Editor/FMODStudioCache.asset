@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8398585101736027426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiences/Objects/Wind
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiences/Objects/Wind
+  Guid:
+    Data1: -1781723334
+    Data2: 1247894878
+    Data3: -877982585
+    Data4: 791070391
+  Banks:
+  - {fileID: 4795613054920582954}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 33076
+--- !u!114 &-8355519692241489470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Apple
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Apple
+  Guid:
+    Data1: 1723370070
+    Data2: 1187396549
+    Data3: 476556185
+    Data4: 975929260
+  Banks:
+  - {fileID: -7894043511826034030}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 850
+--- !u!114 &-7894043511826034030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Objects.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Objects.bank
+  Name: Objects
+  StudioPath: bank:/Objects
+  lastModified: 638205631202638107
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7402263021448184098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,9 +87,36 @@ MonoBehaviour:
   Path: Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638191845505988118
+  lastModified: 638205631202154060
   FileSizes: []
   Exists: 1
+--- !u!114 &-7214305366503282814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Boulders
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Boulders
+  Guid:
+    Data1: 518940083
+    Data2: 1315953159
+    Data3: -1614786924
+    Data4: 2078822991
+  Banks:
+  - {fileID: -7894043511826034030}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1116
 --- !u!114 &-6887831222859810398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,10 +132,10 @@ MonoBehaviour:
   Path: Build/Desktop/UI_Sounds.bank
   Name: UI_Sounds
   StudioPath: bank:/UI_Sounds
-  lastModified: 638191845506178514
+  lastModified: 638205631202827526
   FileSizes: []
   Exists: 1
---- !u!114 &-5754713329152106003
+--- !u!114 &-5276477073581997072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,24 +145,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Drone_intensity
+  m_Name: event:/Ambiences/Objects/Water_am
   m_EditorClassIdentifier: 
-  Path: event:/Drone_intensity
+  Path: event:/Ambiences/Objects/Water_am
   Guid:
-    Data1: 735791687
-    Data2: 1192453866
-    Data3: -979157578
-    Data4: -397097756
+    Data1: 129356270
+    Data2: 1330263027
+    Data3: -2026451280
+    Data4: -1504736501
   Banks:
-  - {fileID: 6900678845550166417}
+  - {fileID: 4795613054920582954}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
-  Parameters:
-  - {fileID: 1642992253284860508}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 10000
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 13
+  Length: 35000
 --- !u!114 &-3855272846502497571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +189,34 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4200
+--- !u!114 &-3842035161982439320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cut_scene/Click
+  m_EditorClassIdentifier: 
+  Path: event:/Cut_scene/Click
+  Guid:
+    Data1: -716879474
+    Data2: 1265718334
+    Data3: -1242728294
+    Data4: 224523638
+  Banks:
+  - {fileID: -7402263021448184098}
+  - {fileID: -6887831222859810398}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 92
 --- !u!114 &-2578675864795316955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,10 +259,10 @@ MonoBehaviour:
   Path: Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638191845463287330
+  lastModified: 638205631201348846
   FileSizes:
   - Name: 
-    Value: 1666
+    Value: 2202
   Exists: 1
 --- !u!114 &-435493989488486173
 MonoBehaviour:
@@ -184,25 +310,35 @@ MonoBehaviour:
   - {fileID: 3683055390323517545}
   - {fileID: -7402263021448184098}
   - {fileID: -6887831222859810398}
+  - {fileID: 4795613054920582954}
+  - {fileID: -7894043511826034030}
   EditorEvents:
   - {fileID: 5444589073240694951}
-  - {fileID: -5754713329152106003}
   - {fileID: 2360718570563981276}
   - {fileID: -435493989488486173}
   - {fileID: 8326406593177574343}
-  - {fileID: 8044232364871169694}
   - {fileID: -3855272846502497571}
   - {fileID: -2578675864795316955}
   - {fileID: 5574074135592070044}
   - {fileID: 522534232372740738}
-  - {fileID: 6488418313643531530}
-  - {fileID: 2771755961642977331}
+  - {fileID: 1738038879497622884}
+  - {fileID: 8035361339607608179}
+  - {fileID: 1552297338345783921}
+  - {fileID: -3842035161982439320}
+  - {fileID: 6184700860374230170}
+  - {fileID: 3595292242343841543}
+  - {fileID: -5276477073581997072}
+  - {fileID: -8398585101736027426}
+  - {fileID: -8355519692241489470}
+  - {fileID: 5541928772658554947}
+  - {fileID: -7214305366503282814}
+  - {fileID: 6315002645910618121}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6900678845550166417}
   StringsBanks:
   - {fileID: -2164841984309518900}
-  cacheTime: 638191845506178514
+  cacheTime: 638205631202827526
   cacheVersion: 131603
 --- !u!114 &522534232372740738
 MonoBehaviour:
@@ -231,7 +367,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 906
---- !u!114 &527420416000929191
+--- !u!114 &981486961623152944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,16 +377,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Game_play_music/LinearVolume
+  m_Name: parameter:/Drone_intensity_low_health/Intensity
   m_EditorClassIdentifier: 
-  Name: LinearVolume
+  Name: Intensity
   StudioPath: 
   Min: 0
-  Max: 10
-  Default: 5
+  Max: 0.1
+  Default: 0
   ID:
-    data1: 2261510968
-    data2: 1224800530
+    data1: 2492805612
+    data2: 3127426274
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -270,10 +406,10 @@ MonoBehaviour:
   Path: Build/Desktop/Collision.bank
   Name: Collision
   StudioPath: bank:/Collision
-  lastModified: 638191845450172352
+  lastModified: 638205631201009787
   FileSizes: []
   Exists: 1
---- !u!114 &1642992253284860508
+--- !u!114 &1552297338345783921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,21 +418,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Drone_intensity/Intensity
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Game_play_music_temp
   m_EditorClassIdentifier: 
-  Name: Intensity
-  StudioPath: 
-  Min: 0
-  Max: 0.1
-  Default: 0
-  ID:
-    data1: 2492805612
-    data2: 3127426274
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/Music/Game_play_music_temp
+  Guid:
+    Data1: 1041530950
+    Data2: 1304938076
+    Data3: -558342005
+    Data4: 248882548
+  Banks:
+  - {fileID: -7402263021448184098}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7780314952262247139}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 88000
+--- !u!114 &1738038879497622884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Drone_intensity_low_health
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Drone_intensity_low_health
+  Guid:
+    Data1: 735791687
+    Data2: 1192453866
+    Data3: -979157578
+    Data4: -397097756
+  Banks:
+  - {fileID: 6900678845550166417}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 981486961623152944}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &2360718570563981276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +493,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1043
---- !u!114 &2771755961642977331
+--- !u!114 &3595292242343841543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,24 +503,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/INTERACTION/Click
+  m_Name: event:/Ambiences/Main/Initial_cutscene_outdoors
   m_EditorClassIdentifier: 
-  Path: event:/INTERACTION/Click
+  Path: event:/Ambiences/Main/Initial_cutscene_outdoors
   Guid:
-    Data1: -716879474
-    Data2: 1265718334
-    Data3: -1242728294
-    Data4: 224523638
+    Data1: 134154809
+    Data2: 1232753490
+    Data3: -1573321331
+    Data4: -894614842
   Banks:
-  - {fileID: -7402263021448184098}
-  - {fileID: -6887831222859810398}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
+  - {fileID: 4795613054920582954}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 92
+  MinDistance: 1.2
+  MaxDistance: 15
+  Length: 41076
 --- !u!114 &3683055390323517545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +535,25 @@ MonoBehaviour:
   Path: Build/Desktop/Movement.bank
   Name: Movement
   StudioPath: bank:/Movement
-  lastModified: 638191845480868409
+  lastModified: 638205631201859686
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4795613054920582954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638205631200989835
   FileSizes: []
   Exists: 1
 --- !u!114 &5444589073240694951
@@ -392,13 +577,40 @@ MonoBehaviour:
   Banks:
   - {fileID: 6900678845550166417}
   - {fileID: 3683055390323517545}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
   Length: 1080
+--- !u!114 &5541928772658554947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Bone
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Bone
+  Guid:
+    Data1: -83978866
+    Data2: 1133786167
+    Data3: -343686735
+    Data4: 1204641051
+  Banks:
+  - {fileID: -7894043511826034030}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &5574074135592070044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +638,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2500
---- !u!114 &6488418313643531530
+--- !u!114 &6184700860374230170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,24 +648,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Game_play_music
+  m_Name: event:/Ambiences/Main/Underground_ambi
   m_EditorClassIdentifier: 
-  Path: event:/Music/Game_play_music
+  Path: event:/Ambiences/Main/Underground_ambi
   Guid:
-    Data1: 1041530950
-    Data2: 1304938076
-    Data3: -558342005
-    Data4: 248882548
+    Data1: -315291851
+    Data2: 1188536238
+    Data3: 1565609395
+    Data4: -321829046
   Banks:
-  - {fileID: -7402263021448184098}
+  - {fileID: 4795613054920582954}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 15500
+--- !u!114 &6315002645910618121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Leaf
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Leaf
+  Guid:
+    Data1: 2044962267
+    Data2: 1118794408
+    Data3: -1551049826
+    Data4: -1650131678
+  Banks:
+  - {fileID: -7894043511826034030}
+  IsStream: 0
+  Is3D: 1
   IsOneShot: 1
-  Parameters:
-  - {fileID: 527420416000929191}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 88000
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 960
 --- !u!114 &6900678845550166417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,10 +707,34 @@ MonoBehaviour:
   Path: Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638191845461545668
+  lastModified: 638205631201328887
   FileSizes: []
   Exists: 1
---- !u!114 &8044232364871169694
+--- !u!114 &7780314952262247139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Game_play_music_temp/LinearVolume
+  m_EditorClassIdentifier: 
+  Name: LinearVolume
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 5
+  ID:
+    data1: 2261510968
+    data2: 1224800530
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8035361339607608179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,9 +744,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/INTERACTION/Falling
+  m_Name: event:/Cut_scene/Falling
   m_EditorClassIdentifier: 
-  Path: event:/INTERACTION/Falling
+  Path: event:/Cut_scene/Falling
   Guid:
     Data1: 126992491
     Data2: 1234745305

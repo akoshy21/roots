@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{6e12c223-0732-4e4d-adce-ed99eaf6416e}">
 		<property name="assetPath">
-			<value>376818__original_sound__2-impact-wet.wav</value>
+			<value>UNsorted_Existing/376818__original_sound__2-impact-wet.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

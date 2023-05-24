@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{4d89c4df-aa20-4448-9b2c-646de96fda75}">
 		<property name="assetPath">
-			<value>240977__dheming__dirt_slide_02.wav</value>
+			<value>UNsorted_Existing/240977__dheming__dirt_slide_02.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

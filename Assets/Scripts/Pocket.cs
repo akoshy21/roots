@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity; 
 
 public enum PocketType
 {
@@ -47,14 +48,18 @@ public class Pocket : MonoBehaviour
                     if (waterDrain == null) waterDrain = StartCoroutine(DrainWaterOverTime());
                     break;
                 case PocketType.Nutrient:
+
                     // TODO: play sound based on type of item.
                     currentValue -= drainRate;
                     pm.AddNutrient(drainRate);
                     break;
             }
+
+   
         } else if (type == PocketType.Nutrient)
         {
             this.GetComponentInChildren<SpriteRenderer>().sprite = grayedOut;
+
         }
     }
     
